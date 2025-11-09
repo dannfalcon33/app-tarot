@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -14,10 +14,15 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Lectura de Tarot - Cartas Aleatorias",
-  description: "App de lectura de tarot con cartas aleatorias. Baraja y selecciona 9 cartas para tu lectura.",
+  description: "App de lectura de tarot con cartas aleatorias. Baraja y selecciona 12 cartas para tu lectura.",
   icons: {
     icon: '/images/favicon.png',
   },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({

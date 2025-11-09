@@ -128,8 +128,8 @@ export default function Home() {
     // Barajar todas las cartas
     const shuffled = shuffleArray(ALL_TAROT_CARDS);
 
-    // Crear 14 posiciones de cartas (2 filas x 7 columnas), todas en reverso inicialmente
-    const initialStates: CardState[] = Array.from({ length: 14 }, (_, index) => ({
+    // Crear 12 posiciones de cartas (2 filas x 6 columnas), todas en reverso inicialmente
+    const initialStates: CardState[] = Array.from({ length: 12 }, (_, index) => ({
       card: shuffled[index],
       isFlipped: false,
     }));
@@ -167,7 +167,7 @@ export default function Home() {
           Lectura de Tarot
           </h1>
         <p className="text-center text-purple-200 mb-8 text-lg">
-          Haz clic en cada carta para revelarla (2 filas x 7 cartas)
+          Haz clic en cada carta para revelarla (2 filas x 6 cartas)
         </p>
 
         {!hasStarted ? (
@@ -190,8 +190,8 @@ export default function Home() {
               </div>
             ) : (
               <>
-                {/* 14 cartas en 2 filas x 7 columnas */}
-                <div className="grid grid-cols-7 gap-2 md:gap-3 lg:gap-4 mb-8 px-2 md:px-4 justify-center">
+                {/* 12 cartas en layout responsive: 1 col ultra-móvil, 2 cols móvil, 3-4 cols tablets, 6 cols desktop */}
+                <div className="grid max-[360px]:grid-cols-1 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 max-[360px]:gap-2 gap-3 sm:gap-4 md:gap-5 mb-8 px-2 md:px-4 justify-center">
                   {cardStates.map((cardState, index) => (
                     <div
                       key={index}
@@ -199,7 +199,8 @@ export default function Home() {
                       className="relative cursor-pointer mx-auto"
                       style={{
                         width: '100%',
-                        maxWidth: 'clamp(60px, 12vw, 140px)',
+                        // Máximo ancho: casi pantalla completa en ultra-móvil; tope 160px en desktop
+                        maxWidth: 'min(90vw, 160px)',
                         aspectRatio: '2/3',
                         perspective: '1000px',
                       }}
@@ -219,12 +220,12 @@ export default function Home() {
                             transform: 'rotateY(0deg)',
                           }}
           >
-            <Image
+                          <Image
                             src={REVERSO_PATH}
                             alt="Reverso de carta"
                             fill
                             className="object-cover"
-                            sizes="(max-width: 768px) 80px, 150px"
+                            sizes="(max-width: 360px) 90vw, (max-width: 640px) 45vw, (max-width: 768px) 30vw, (max-width: 1024px) 22vw, 160px"
                           />
                         </div>
 
@@ -242,7 +243,7 @@ export default function Home() {
                               alt={cardState.card.name}
                               fill
                               className="object-cover"
-                              sizes="(max-width: 768px) 80px, 150px"
+                              sizes="(max-width: 360px) 90vw, (max-width: 640px) 45vw, (max-width: 768px) 30vw, (max-width: 1024px) 22vw, 160px"
                             />
                           )}
                           {/* Nombre de la carta al hover */}
