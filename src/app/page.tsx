@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import MajorArcanaButton, {
+  ArcanaNavButton,
+} from "@/components/MajorArcanaButton";
 
 // Función para barajar array (Fisher-Yates shuffle)
 function shuffleArray<T>(array: T[]): T[] {
@@ -176,8 +179,12 @@ export default function Home() {
   const [hasStarted, setHasStarted] = useState(false);
 
   const startReading = () => {
-    setIsShuffling(true);
     setHasStarted(true);
+    dealNewCards();
+  };
+
+  const dealNewCards = () => {
+    setIsShuffling(true);
 
     // Barajar todas las cartas
     const shuffled = shuffleArray(ALL_TAROT_CARDS);
@@ -223,20 +230,44 @@ export default function Home() {
         <h1 className="text-4xl md:text-5xl font-bold text-center text-white mb-2 drop-shadow-lg">
           Lectura de Tarot
         </h1>
-        <p className="text-center text-purple-200 mb-8 text-lg">
+        <p className="text-center text-purple-200 mb-6 text-lg">
           Haz clic en cada carta para revelarla.
         </p>
 
-        {!hasStarted ? (
-          <div className="flex justify-center">
-            <button
-              onClick={startReading}
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-full text-xl shadow-2xl transform transition-all duration-200 hover:scale-105 active:scale-95"
-            >
-              Iniciar Lectura
-            </button>
+        {!hasStarted && (
+          <div className="flex flex-col items-center gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-3">
+              <button
+                onClick={startReading}
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 px-7 rounded-full text-lg shadow-2xl transform transition-all duration-200 hover:scale-105 active:scale-95"
+              >
+                Iniciar Lectura
+              </button>
+              <MajorArcanaButton />
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-3">
+              <ArcanaNavButton
+                label="Ver Arcanos Menores de Pentáculos"
+                href="/arcanos-menores/pentaculos"
+              />
+              <ArcanaNavButton
+                label="Ver Arcanos Menores de Espadas"
+                href="/arcanos-menores/espadas"
+              />
+              <ArcanaNavButton
+                label="Ver Arcanos Menores de Copas"
+                href="/arcanos-menores/copas"
+              />
+              <ArcanaNavButton
+                label="Ver Arcanos Menores de Bastos"
+                href="/arcanos-menores/bastos"
+              />
+            </div>
           </div>
-        ) : (
+        )}
+
+        {hasStarted && (
           <>
             {isShuffling ? (
               <div className="flex justify-center items-center min-h-[400px]">
@@ -316,9 +347,15 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <div className="flex justify-center">
+                <div className="flex justify-center gap-4">
                   <button
                     onClick={resetReading}
+                    className="bg-black/40 border border-purple-500/60 hover:border-purple-300 text-purple-100 hover:text-white font-semibold py-3 px-6 rounded-full text-sm sm:text-base shadow-xl transition-all duration-200 hover:scale-105 active:scale-95"
+                  >
+                    Volver
+                  </button>
+                  <button
+                    onClick={dealNewCards}
                     className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-full shadow-xl transform transition-all duration-200 hover:scale-105 active:scale-95"
                   >
                     Barajar de Nuevo
