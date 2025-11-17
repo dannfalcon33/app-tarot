@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Starfield from "@/components/Starfield";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,14 +36,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         style={{
-          backgroundImage: 'url(/images/background.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed',
+          backgroundColor: '#000',
           minHeight: '100vh',
         }}
       >
+        {/* Fondo animado de estrellas con Three.js */}
+        <Starfield />
         <div className="relative min-h-screen">
           {/* Overlay oscuro para mejor contraste */}
           <div className="fixed inset-0 bg-black bg-opacity-40 pointer-events-none z-0"></div>
