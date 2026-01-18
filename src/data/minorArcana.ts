@@ -13,7 +13,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 1,
     name: "As de Bastos",
-    path: "/tarot/Bastos/As de Bastos.png",
+    path: "/tarot/Bastos/As de Bastos.webp",
     suit: "Bastos",
     description:
       "Una chispa inicial de energía, creatividad e impulso para empezar algo nuevo.",
@@ -23,7 +23,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 2,
     name: "Dos de Bastos",
-    path: "/tarot/Bastos/Dos de Bastos.png",
+    path: "/tarot/Bastos/Dos de Bastos.webp",
     suit: "Bastos",
     description:
       "La planificación y la visión de futuro antes de dar un gran paso.",
@@ -33,7 +33,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 3,
     name: "Tres de Bastos",
-    path: "/tarot/Bastos/Tres de Bastos.png",
+    path: "/tarot/Bastos/Tres de Bastos.webp",
     suit: "Bastos",
     description:
       "Esperar resultados tras haber dado un paso valiente hacia lo nuevo.",
@@ -43,7 +43,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 4,
     name: "Cuatro de Bastos",
-    path: "/tarot/Bastos/Cuatro de Bastos.png",
+    path: "/tarot/Bastos/Cuatro de Bastos.webp",
     suit: "Bastos",
     description:
       "Celebración, estabilidad y momentos de alegría compartida con otros.",
@@ -53,7 +53,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 5,
     name: "Cinco de Bastos",
-    path: "/tarot/Bastos/Cinco de Bastos.png",
+    path: "/tarot/Bastos/Cinco de Bastos.webp",
     suit: "Bastos",
     description:
       "Tensiones, competencia y choques de opiniones que pueden ser caóticos.",
@@ -63,7 +63,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 6,
     name: "Seis de Bastos",
-    path: "/tarot/Bastos/Seis de Bastos.png",
+    path: "/tarot/Bastos/Seis de Bastos.webp",
     suit: "Bastos",
     description:
       "Reconocimiento público y la sensación de victoria tras un esfuerzo.",
@@ -73,17 +73,16 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 7,
     name: "Siete de Bastos",
-    path: "/tarot/Bastos/Siete de Bastos.png",
+    path: "/tarot/Bastos/Siete de Bastos.webp",
     suit: "Bastos",
-    description:
-      "Defender tu posición frente a desafíos y presiones externas.",
+    description: "Defender tu posición frente a desafíos y presiones externas.",
     meaning:
       "Mantenerte firme, poner límites, no ceder ante la oposición cuando sabes que tienes razón.",
   },
   {
     id: 8,
     name: "Ocho de Bastos",
-    path: "/tarot/Bastos/Ocho de Bastos.png",
+    path: "/tarot/Bastos/Ocho de Bastos.webp",
     suit: "Bastos",
     description:
       "Movimiento rápido, noticias que llegan y avances que se aceleran.",
@@ -93,7 +92,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 9,
     name: "Nueve de Bastos",
-    path: "/tarot/Bastos/Nueve de Bastos.png",
+    path: "/tarot/Bastos/Nueve de Bastos.webp",
     suit: "Bastos",
     description:
       "Persistencia y resistencia a pesar del cansancio y las heridas del pasado.",
@@ -103,7 +102,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 10,
     name: "Diez de Bastos",
-    path: "/tarot/Bastos/Diez de Bastos.png",
+    path: "/tarot/Bastos/Diez de Bastos.webp",
     suit: "Bastos",
     description:
       "La carga pesada de responsabilidades que puede volverse abrumadora.",
@@ -113,7 +112,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 11,
     name: "Sota de Bastos",
-    path: "/tarot/Bastos/Sota de Bastos.png",
+    path: "/tarot/Bastos/Sota de Bastos.webp",
     suit: "Bastos",
     description:
       "Energía juvenil y curiosa que quiere explorar nuevas ideas y caminos.",
@@ -123,7 +122,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 12,
     name: "Caballero de Bastos",
-    path: "/tarot/Bastos/Caballero de Bastos.png",
+    path: "/tarot/Bastos/Caballero de Bastos.webp",
     suit: "Bastos",
     description:
       "Impulso apasionado, a veces impulsivo, que busca aventura y acción.",
@@ -133,7 +132,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 13,
     name: "Reina de Bastos",
-    path: "/tarot/Bastos/Reina de Bastos.png",
+    path: "/tarot/Bastos/Reina de Bastos.webp",
     suit: "Bastos",
     description:
       "Confianza, magnetismo personal y la capacidad de inspirar a otros.",
@@ -143,7 +142,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 14,
     name: "Rey de Bastos",
-    path: "/tarot/Bastos/Rey de Bastos.png",
+    path: "/tarot/Bastos/Rey de Bastos.webp",
     suit: "Bastos",
     description:
       "Visión, liderazgo y dominio sobre la energía creativa y emprendedora.",
@@ -156,7 +155,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 1,
     name: "As de Copas",
-    path: "/tarot/Copas/As de Copas.png",
+    path: "/tarot/Copas/As de Copas.webp",
     suit: "Copas",
     description:
       "Un desborde de emociones, apertura del corazón y nuevas conexiones afectivas.",
@@ -166,7 +165,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 2,
     name: "Dos de Copas",
-    path: "/tarot/Copas/Dos de Copas.png",
+    path: "/tarot/Copas/Dos de Copas.webp",
     suit: "Copas",
     description:
       "Encuentro armonioso entre dos energías que se reconocen y se apoyan.",
@@ -176,7 +175,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 3,
     name: "Tres de Copas",
-    path: "/tarot/Copas/Tres de Copas.png",
+    path: "/tarot/Copas/Tres de Copas.webp",
     suit: "Copas",
     description:
       "Celebración, amistades y momentos de alegría compartida en comunidad.",
@@ -186,7 +185,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 4,
     name: "Cuatro de Copas",
-    path: "/tarot/Copas/Cuatro de Copas.png",
+    path: "/tarot/Copas/Cuatro de Copas.webp",
     suit: "Copas",
     description:
       "Un estado de apatía o desconexión emocional frente a lo que la vida ofrece.",
@@ -196,7 +195,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 5,
     name: "Cinco de Copas",
-    path: "/tarot/Copas/Cinco de Copas.png",
+    path: "/tarot/Copas/Cinco de Copas.webp",
     suit: "Copas",
     description:
       "Dolor emocional y enfoque en lo perdido más que en lo que permanece.",
@@ -206,7 +205,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 6,
     name: "Seis de Copas",
-    path: "/tarot/Copas/Seis de Copas.png",
+    path: "/tarot/Copas/Seis de Copas.webp",
     suit: "Copas",
     description:
       "Recuerdos, nostalgia y el retorno a experiencias del pasado con ternura.",
@@ -216,17 +215,16 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 7,
     name: "Siete de Copas",
-    path: "/tarot/Copas/Siete de Copas.png",
+    path: "/tarot/Copas/Siete de Copas.webp",
     suit: "Copas",
-    description:
-      "Muchas opciones y fantasías que pueden confundir o distraer.",
+    description: "Muchas opciones y fantasías que pueden confundir o distraer.",
     meaning:
       "Necesidad de claridad, evitar ilusiones, elegir con el corazón pero con los pies en la tierra.",
   },
   {
     id: 8,
     name: "Ocho de Copas",
-    path: "/tarot/Copas/Ocho de Copas.png",
+    path: "/tarot/Copas/Ocho de Copas.webp",
     suit: "Copas",
     description:
       "Partir de algo conocido en búsqueda de una verdad o plenitud más profunda.",
@@ -236,7 +234,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 9,
     name: "Nueve de Copas",
-    path: "/tarot/Copas/Nueve de Copas.png",
+    path: "/tarot/Copas/Nueve de Copas.webp",
     suit: "Copas",
     description:
       "Satisfacción emocional y sensación de haber recibido un deseo cumplido.",
@@ -246,7 +244,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 10,
     name: "Diez de Copas",
-    path: "/tarot/Copas/Diez de Copas.png",
+    path: "/tarot/Copas/Diez de Copas.webp",
     suit: "Copas",
     description:
       "Armonía familiar y plenitud afectiva que se comparte con otros.",
@@ -256,7 +254,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 11,
     name: "Sota de Copas",
-    path: "/tarot/Copas/Sota de Copas.png",
+    path: "/tarot/Copas/Sota de Copas.webp",
     suit: "Copas",
     description:
       "Sensibilidad, intuición y apertura a mensajes emocionales o creativos.",
@@ -266,7 +264,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 12,
     name: "Caballero de Copas",
-    path: "/tarot/Copas/Caballero de Copas.png",
+    path: "/tarot/Copas/Caballero de Copas.webp",
     suit: "Copas",
     description:
       "Romanticismo en movimiento, búsqueda de experiencias intensas del corazón.",
@@ -276,7 +274,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 13,
     name: "Reina de Copas",
-    path: "/tarot/Copas/Reina de Copas.png",
+    path: "/tarot/Copas/Reina de Copas.webp",
     suit: "Copas",
     description:
       "Profunda empatía, intuición y capacidad de contener emocionalmente a otros.",
@@ -286,7 +284,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 14,
     name: "Rey de Copas",
-    path: "/tarot/Copas/Rey de Copas.png",
+    path: "/tarot/Copas/Rey de Copas.webp",
     suit: "Copas",
     description:
       "Madurez emocional y capacidad de manejar sentimientos intensos con equilibrio.",
@@ -299,47 +297,43 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 1,
     name: "As de Espadas",
-    path: "/tarot/Espadas/1 As de Espadas.png",
+    path: "/tarot/Espadas/1 As de Espadas.webp",
     suit: "Espadas",
-    description:
-      "Una nueva idea, claridad mental y la fuerza de la verdad.",
+    description: "Una nueva idea, claridad mental y la fuerza de la verdad.",
     meaning:
       "Inicio de un nuevo entendimiento, decisiones claras, comunicación honesta y directa.",
   },
   {
     id: 2,
     name: "Dos de Espadas",
-    path: "/tarot/Espadas/2 Dos de Espadas.png",
+    path: "/tarot/Espadas/2 Dos de Espadas.webp",
     suit: "Espadas",
-    description:
-      "Dilema y bloqueo mental, con dificultad para ver o elegir.",
+    description: "Dilema y bloqueo mental, con dificultad para ver o elegir.",
     meaning:
       "Necesidad de tomar una decisión, levantar la venda y enfrentar la verdad con calma.",
   },
   {
     id: 3,
     name: "Tres de Espadas",
-    path: "/tarot/Espadas/3 Tres de Espadas.png",
+    path: "/tarot/Espadas/3 Tres de Espadas.webp",
     suit: "Espadas",
-    description:
-      "Dolor, ruptura o palabras que han herido profundamente.",
+    description: "Dolor, ruptura o palabras que han herido profundamente.",
     meaning:
       "Tristeza, separación, necesidad de procesar el dolor para poder sanar y seguir adelante.",
   },
   {
     id: 4,
     name: "Cuatro de Espadas",
-    path: "/tarot/Espadas/4 Cuatro de Espadas.png",
+    path: "/tarot/Espadas/4 Cuatro de Espadas.webp",
     suit: "Espadas",
-    description:
-      "Pausa mental para descansar, integrar y recuperar energía.",
+    description: "Pausa mental para descansar, integrar y recuperar energía.",
     meaning:
       "Retiro, descanso, meditación, tomar distancia para recuperar claridad y fuerza.",
   },
   {
     id: 5,
     name: "Cinco de Espadas",
-    path: "/tarot/Espadas/5 Cinco de Espadas.png",
+    path: "/tarot/Espadas/5 Cinco de Espadas.webp",
     suit: "Espadas",
     description:
       "Conflictos donde alguien gana a costa de otros, dejando tensión.",
@@ -349,7 +343,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 6,
     name: "Seis de Espadas",
-    path: "/tarot/Espadas/6 Seis de Espada.png",
+    path: "/tarot/Espadas/6 Seis de Espada.webp",
     suit: "Espadas",
     description:
       "Transición hacia aguas más tranquilas después de un periodo difícil.",
@@ -359,7 +353,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 7,
     name: "Siete de Espadas",
-    path: "/tarot/Espadas/7 Siete de Espadas.png",
+    path: "/tarot/Espadas/7 Siete de Espadas.webp",
     suit: "Espadas",
     description:
       "Estrategias ocultas, evasión o acciones que no son del todo transparentes.",
@@ -369,7 +363,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 8,
     name: "Ocho de Espadas",
-    path: "/tarot/Espadas/8 Ocho de Espadas.png",
+    path: "/tarot/Espadas/8 Ocho de Espadas.webp",
     suit: "Espadas",
     description:
       "Sensación de estar atrapado por tus propios pensamientos y miedos.",
@@ -379,7 +373,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 9,
     name: "Nueve de Espadas",
-    path: "/tarot/Espadas/9 Nueve de Espadas.png",
+    path: "/tarot/Espadas/9 Nueve de Espadas.webp",
     suit: "Espadas",
     description:
       "Preocupaciones, ansiedad y pensamientos que no te dejan descansar.",
@@ -389,7 +383,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 10,
     name: "Diez de Espadas",
-    path: "/tarot/Espadas/10 Diez de Espadas.png",
+    path: "/tarot/Espadas/10 Diez de Espadas.webp",
     suit: "Espadas",
     description:
       "Fin drástico de una situación, momento en el que ya no se puede caer más bajo.",
@@ -399,7 +393,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 11,
     name: "Sota de Espadas",
-    path: "/tarot/Espadas/Sota de Espadas.png",
+    path: "/tarot/Espadas/Sota de Espadas.webp",
     suit: "Espadas",
     description:
       "Curiosidad mental, ganas de aprender y observar con atención.",
@@ -409,7 +403,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 12,
     name: "Caballero de Espadas",
-    path: "/tarot/Espadas/Caballero de Espadas.png",
+    path: "/tarot/Espadas/Caballero de Espadas.webp",
     suit: "Espadas",
     description:
       "Acción rápida motivada por ideas fuertes y convicciones intensas.",
@@ -419,7 +413,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 13,
     name: "Reina de Espadas",
-    path: "/tarot/Espadas/Reina de Espadas.png",
+    path: "/tarot/Espadas/Reina de Espadas.webp",
     suit: "Espadas",
     description:
       "Claridad, independencia y capacidad de decir la verdad sin adornos.",
@@ -429,7 +423,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 14,
     name: "Rey de Espadas",
-    path: "/tarot/Espadas/Rey de Espadas.png",
+    path: "/tarot/Espadas/Rey de Espadas.webp",
     suit: "Espadas",
     description:
       "Dominio mental, justicia y capacidad de tomar decisiones objetivas.",
@@ -442,7 +436,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 1,
     name: "As de Pentáculos",
-    path: "/tarot/Pentaculos/As de Pentaculos.png",
+    path: "/tarot/Pentaculos/As de Pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Semilla de abundancia material, oportunidad concreta que empieza a manifestarse.",
@@ -452,7 +446,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 2,
     name: "Dos de Pentáculos",
-    path: "/tarot/Pentaculos/Dos de Pentaculos.png",
+    path: "/tarot/Pentaculos/Dos de Pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Equilibrio dinámico entre varias responsabilidades y recursos.",
@@ -462,7 +456,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 3,
     name: "Tres de Pentáculos",
-    path: "/tarot/Pentaculos/Tres de Pentaculos.png",
+    path: "/tarot/Pentaculos/Tres de Pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Trabajo en equipo, maestría en desarrollo y reconocimiento profesional.",
@@ -472,7 +466,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 4,
     name: "Cuatro de Pentáculos",
-    path: "/tarot/Pentaculos/Cuatro de Pentaculos.png",
+    path: "/tarot/Pentaculos/Cuatro de Pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Apego y necesidad de controlar o retener recursos por miedo a perderlos.",
@@ -482,7 +476,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 5,
     name: "Cinco de Pentáculos",
-    path: "/tarot/Pentaculos/Cinco de Pentaculos.png",
+    path: "/tarot/Pentaculos/Cinco de Pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Sensación de carencia, exclusión o dificultad material que pesa.",
@@ -492,7 +486,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 6,
     name: "Seis de Pentáculos",
-    path: "/tarot/Pentaculos/Seis de Pentaculos.png",
+    path: "/tarot/Pentaculos/Seis de Pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Dar y recibir en equilibrio, generosidad y reparto justo de recursos.",
@@ -502,7 +496,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 7,
     name: "Siete de Pentáculos",
-    path: "/tarot/Pentaculos/Siete de Pentaculos.png",
+    path: "/tarot/Pentaculos/Siete de Pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Pausa para evaluar el crecimiento de lo que has sembrado con paciencia.",
@@ -512,7 +506,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 8,
     name: "Ocho de Pentáculos",
-    path: "/tarot/Pentaculos/Ocho de Pentaculos.png",
+    path: "/tarot/Pentaculos/Ocho de Pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Trabajo constante, aprendizaje y perfeccionamiento de una habilidad.",
@@ -522,7 +516,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 9,
     name: "Nueve de Pentáculos",
-    path: "/tarot/Pentaculos/Nueve de Pentaculos.png",
+    path: "/tarot/Pentaculos/Nueve de Pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Autonomía, disfrute de lo logrado y sensación de seguridad personal.",
@@ -532,7 +526,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 10,
     name: "Diez de Pentáculos",
-    path: "/tarot/Pentaculos/Diez de Pentaculos.png",
+    path: "/tarot/Pentaculos/Diez de Pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Abundancia compartida, legado familiar y estabilidad a largo plazo.",
@@ -542,7 +536,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 11,
     name: "Sota de Pentáculos",
-    path: "/tarot/Pentaculos/Sota de Pentaculos.png",
+    path: "/tarot/Pentaculos/Sota de Pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Aprendizaje práctico, enfoque en estudios, trabajo o proyectos concretos.",
@@ -552,7 +546,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 12,
     name: "Caballero de Pentáculos",
-    path: "/tarot/Pentaculos/Caballero de Pentaculos.png",
+    path: "/tarot/Pentaculos/Caballero de Pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Constancia, responsabilidad y avanzar con pasos seguros aunque lentos.",
@@ -562,7 +556,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 13,
     name: "Reina de Pentáculos",
-    path: "/tarot/Pentaculos/Reina de Pentaculos.png",
+    path: "/tarot/Pentaculos/Reina de Pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Energía nutritiva y práctica que cuida tanto el bienestar como lo material.",
@@ -572,7 +566,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 14,
     name: "Rey de Pentáculos",
-    path: "/tarot/Pentaculos/Rey de Pentáculos.png",
+    path: "/tarot/Pentaculos/Rey de Pentáculos.webp",
     suit: "Pentáculos",
     description:
       "Dominio del mundo material, éxito y solidez construidos con paciencia.",
@@ -580,4 +574,3 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
       "Estabilidad económica, liderazgo responsable, disfrutar de lo logrado y compartirlo de forma sabia.",
   },
 ];
-

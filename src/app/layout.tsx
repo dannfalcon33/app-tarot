@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     "App de lectura de tarot con cartas aleatorias. Baraja y selecciona 12 cartas para tu lectura.",
   icons: {
-    icon: "/images/favicon.png",
+    icon: "/images/favicon.webp",
   },
 };
 

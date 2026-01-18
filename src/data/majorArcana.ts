@@ -12,7 +12,7 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
   {
     id: 0,
     name: "El Loco",
-    path: "/tarot/Arcanos Mayores/0 El Loco.png",
+    path: "/tarot/Arcanos Mayores/0 El Loco.webp",
     description:
       "El inicio del viaje, la energía fresca y espontánea que se lanza al vacío con fe.",
     meaning:
@@ -21,7 +21,7 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
   {
     id: 1,
     name: "El Mago",
-    path: "/tarot/Arcanos Mayores/1 El Mago.png",
+    path: "/tarot/Arcanos Mayores/1 El Mago.webp",
     description:
       "La canalización consciente de la energía, dominio de recursos y enfoque creativo.",
     meaning:
@@ -30,7 +30,7 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
   {
     id: 2,
     name: "La Sacerdotisa",
-    path: "/tarot/Arcanos Mayores/2 La Alta Sacerdotiza.png",
+    path: "/tarot/Arcanos Mayores/2 La Alta Sacerdotiza.webp",
     description:
       "La sabiduría interior, el mundo oculto de la intuición y los misterios.",
     meaning:
@@ -39,7 +39,7 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
   {
     id: 3,
     name: "La Emperatriz",
-    path: "/tarot/Arcanos Mayores/3 La Emperatriz.png",
+    path: "/tarot/Arcanos Mayores/3 La Emperatriz.webp",
     description:
       "La energía maternal, creativa y abundante que nutre y hace florecer la vida.",
     meaning:
@@ -48,7 +48,7 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
   {
     id: 4,
     name: "El Emperador",
-    path: "/tarot/Arcanos Mayores/4 El Emperador.png",
+    path: "/tarot/Arcanos Mayores/4 El Emperador.webp",
     description:
       "La estructura, el liderazgo y la autoridad que da forma al mundo material.",
     meaning:
@@ -57,7 +57,7 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
   {
     id: 5,
     name: "El Papa",
-    path: "/tarot/Arcanos Mayores/5 El Hierofante.png",
+    path: "/tarot/Arcanos Mayores/5 El Hierofante.webp",
     description:
       "La tradición, la guía espiritual y el conocimiento que se transmite a través del tiempo.",
     meaning:
@@ -66,7 +66,7 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
   {
     id: 6,
     name: "Los Enamorados",
-    path: "/tarot/Arcanos Mayores/6 Los Enamorados.png",
+    path: "/tarot/Arcanos Mayores/6 Los Enamorados.webp",
     description:
       "La unión, la elección consciente del corazón y la integración de polaridades.",
     meaning:
@@ -75,7 +75,7 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
   {
     id: 7,
     name: "El Carro",
-    path: "/tarot/Arcanos Mayores/7 El Carro.png",
+    path: "/tarot/Arcanos Mayores/7 El Carro.webp",
     description:
       "La fuerza de voluntad que impulsa hacia adelante y mantiene el rumbo.",
     meaning:
@@ -84,16 +84,15 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
   {
     id: 8,
     name: "La Justicia",
-    path: "/tarot/Arcanos Mayores/8 La Justicia.png",
-    description:
-      "El equilibrio, las consecuencias y la búsqueda de la verdad.",
+    path: "/tarot/Arcanos Mayores/8 La Justicia.webp",
+    description: "El equilibrio, las consecuencias y la búsqueda de la verdad.",
     meaning:
       "Tomar decisiones justas, asumir responsabilidad, ver las situaciones con claridad y objetividad.",
   },
   {
     id: 9,
     name: "El Ermitaño",
-    path: "/tarot/Arcanos Mayores/9 El Ermitano.png",
+    path: "/tarot/Arcanos Mayores/9 El Ermitano.webp",
     description:
       "La introspección, el retiro consciente para encontrar la luz interior.",
     meaning:
@@ -102,7 +101,7 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
   {
     id: 10,
     name: "La Rueda de la Fortuna",
-    path: "/tarot/Arcanos Mayores/10 La Rueda de la Fortuna.png",
+    path: "/tarot/Arcanos Mayores/10 La Rueda de la Fortuna.webp",
     description:
       "Los ciclos del destino, los cambios inevitables que mueven la vida.",
     meaning:
@@ -111,7 +110,7 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
   {
     id: 11,
     name: "La Fuerza",
-    path: "/tarot/Arcanos Mayores/11 La Fuerza.png",
+    path: "/tarot/Arcanos Mayores/11 La Fuerza.webp",
     description:
       "La valentía suave, la compasión que doma la bestia interior y exterior.",
     meaning:
@@ -120,7 +119,7 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
   {
     id: 12,
     name: "El Colgado",
-    path: "/tarot/Arcanos Mayores/12 El Colgado.png",
+    path: "/tarot/Arcanos Mayores/12 El Colgado.webp",
     description:
       "La pausa necesaria para ver las cosas desde otra perspectiva.",
     meaning:
@@ -129,7 +128,7 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
   {
     id: 13,
     name: "La Muerte",
-    path: "/tarot/Arcanos Mayores/13 La Muerte.png",
+    path: "/tarot/Arcanos Mayores/13 La Muerte.webp",
     description:
       "El cierre de ciclos, la transformación profunda que abre espacio a lo nuevo.",
     meaning:
@@ -138,16 +137,15 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
   {
     id: 14,
     name: "La Templanza",
-    path: "/tarot/Arcanos Mayores/14 La Templanza.png",
-    description:
-      "La alquimia interior, el equilibrio delicado entre extremos.",
+    path: "/tarot/Arcanos Mayores/14 La Templanza.webp",
+    description: "La alquimia interior, el equilibrio delicado entre extremos.",
     meaning:
       "Moderación, armonía, integración de opuestos, sanar a través de la paciencia y la serenidad.",
   },
   {
     id: 15,
     name: "El Diablo",
-    path: "/tarot/Arcanos Mayores/15 El Diablo.png",
+    path: "/tarot/Arcanos Mayores/15 El Diablo.webp",
     description:
       "Las ataduras, los miedos y deseos que pueden encadenar si no se observan con conciencia.",
     meaning:
@@ -156,7 +154,7 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
   {
     id: 16,
     name: "La Torre",
-    path: "/tarot/Arcanos Mayores/16 La Torre.png",
+    path: "/tarot/Arcanos Mayores/16 La Torre.webp",
     description:
       "La ruptura de estructuras que ya no son auténticas para revelar la verdad.",
     meaning:
@@ -165,16 +163,15 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
   {
     id: 17,
     name: "La Estrella",
-    path: "/tarot/Arcanos Mayores/17 La Estrella.png",
-    description:
-      "La esperanza, la sanación y la conexión con tu luz más pura.",
+    path: "/tarot/Arcanos Mayores/17 La Estrella.webp",
+    description: "La esperanza, la sanación y la conexión con tu luz más pura.",
     meaning:
       "Renovación, fe en el futuro, inspiración, sentir que el universo te sostiene y guía.",
   },
   {
     id: 18,
     name: "La Luna",
-    path: "/tarot/Arcanos Mayores/18 La Luna.png",
+    path: "/tarot/Arcanos Mayores/18 La Luna.webp",
     description:
       "El mundo de los sueños, las emociones profundas y lo inconsciente.",
     meaning:
@@ -183,7 +180,7 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
   {
     id: 19,
     name: "El Sol",
-    path: "/tarot/Arcanos Mayores/19 El Sol.png",
+    path: "/tarot/Arcanos Mayores/19 El Sol.webp",
     description:
       "La claridad, la alegría y la vitalidad que iluminan el camino.",
     meaning:
@@ -192,20 +189,17 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
   {
     id: 20,
     name: "El Juicio",
-    path: "/tarot/Arcanos Mayores/20 El Juicio.png",
-    description:
-      "El llamado a despertar, reconciliar el pasado y renacer.",
+    path: "/tarot/Arcanos Mayores/20 El Juicio.webp",
+    description: "El llamado a despertar, reconciliar el pasado y renacer.",
     meaning:
       "Tomar decisiones importantes, perdonar, liberarte del peso del pasado y responder a una nueva vocación interna.",
   },
   {
     id: 21,
     name: "El Mundo",
-    path: "/tarot/Arcanos Mayores/21 El Mundo.png",
-    description:
-      "La culminación del viaje, la sensación de totalidad y logro.",
+    path: "/tarot/Arcanos Mayores/21 El Mundo.webp",
+    description: "La culminación del viaje, la sensación de totalidad y logro.",
     meaning:
       "Cierre exitoso de una etapa, integración, expansión y apertura a un nuevo ciclo desde un nivel más elevado.",
   },
 ];
-
