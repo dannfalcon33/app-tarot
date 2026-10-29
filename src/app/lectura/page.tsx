@@ -13,6 +13,7 @@ import {
   UnifiedTarotCard,
 } from "@/data/tarotSpread";
 import type { InterpretResponseData } from "@/app/api/interpretar/route";
+import HoloTarotCard from "@/components/HoloTarotCard";
 
 interface DealtCardSlot {
   position: number;
@@ -668,13 +669,13 @@ function TarotReadingContent() {
                   {activeSlot && activeSlot.isFlipped ? (
                     <div className="border-t border-purple-500/25 pt-4 space-y-4 animate-fade-in">
                       <div className="flex gap-4 items-center">
-                        <div className="relative w-24 aspect-[2/3] rounded-xl overflow-hidden border border-purple-300/50 shadow-xl shrink-0">
-                          <Image
+                        <div className="shrink-0">
+                          <HoloTarotCard
                             src={activeSlot.card.path}
                             alt={activeSlot.card.name}
-                            fill
-                            className="object-cover"
-                            sizes="96px"
+                            width="104px"
+                            activateOnClick={true}
+                            showcase={true}
                           />
                         </div>
                         <div>
@@ -1028,24 +1029,32 @@ function TarotSpreadCard({
         } ${isSelected ? "scale-105 z-20" : "group-hover:scale-105"}`}
         style={{ perspective: "1000px" }}
       >
-        <div
-          className="relative w-full h-full transition-transform duration-700"
-          style={{
-            transformStyle: "preserve-3d",
-            transform: slot.isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
-          }}
-        >
-          {/* Cara Delantera (Reverso) */}
+        {slot.isFlipped ? (
           <div
-            className={`absolute inset-0 w-full h-full backface-hidden rounded-xl overflow-hidden shadow-xl border-2 transition-colors ${
+            className={`relative w-full h-full rounded-xl animate-fade-in ${
+              isSelected ? "ring-2 ring-fuchsia-400/70" : ""
+            }`}
+          >
+            <HoloTarotCard
+              src={slot.card.path}
+              alt={slot.card.name}
+              width="100%"
+              activateOnClick={false}
+              showcase={false}
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/75 to-transparent p-1.5 text-center rounded-b-xl pointer-events-none z-30">
+              <p className="text-[10px] sm:text-xs font-bold text-white leading-tight truncate">
+                {slot.card.name}
+              </p>
+            </div>
+          </div>
+        ) : (
+          <div
+            className={`relative w-full h-full rounded-xl overflow-hidden shadow-xl border-2 transition-colors ${
               isSelected
                 ? "border-fuchsia-400 shadow-fuchsia-500/30"
                 : "border-purple-400/40 group-hover:border-purple-300"
             }`}
-            style={{
-              backfaceVisibility: "hidden",
-              transform: "rotateY(0deg)",
-            }}
           >
             <Image
               src={REVERSO_PATH}
@@ -1060,33 +1069,7 @@ function TarotSpreadCard({
               </span>
             </div>
           </div>
-
-          {/* Cara Trasera (Arcano Revelado) */}
-          <div
-            className={`absolute inset-0 w-full h-full backface-hidden rounded-xl overflow-hidden shadow-2xl border-2 ${
-              isSelected
-                ? "border-fuchsia-400 ring-2 ring-fuchsia-400/50"
-                : "border-purple-300/60"
-            }`}
-            style={{
-              backfaceVisibility: "hidden",
-              transform: "rotateY(180deg)",
-            }}
-          >
-            <Image
-              src={slot.card.path}
-              alt={slot.card.name}
-              fill
-              className="object-cover"
-              sizes="144px"
-            />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/75 to-transparent p-1.5 text-center">
-              <p className="text-[10px] sm:text-xs font-bold text-white leading-tight truncate">
-                {slot.card.name}
-              </p>
-            </div>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { MINOR_ARCANA_ESPADAS } from "@/data/minorArcana";
+import HoloTarotCard from "@/components/HoloTarotCard";
 
 export default function EspadasMinorArcanaPage() {
   const router = useRouter();
@@ -28,53 +29,53 @@ export default function EspadasMinorArcanaPage() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center py-8 px-4">
       <div className="w-full max-w-6xl mx-auto">
-        <button
-          onClick={() => router.push("/")}
-          className="mb-6 text-sm text-purple-200 hover:text-white underline"
-        >
-          ← Volver al inicio
-        </button>
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+          <button
+            onClick={() => router.push("/")}
+            className="text-sm text-purple-200 hover:text-white bg-purple-950/50 border border-purple-500/35 px-4 py-2 rounded-full transition-colors cursor-pointer"
+          >
+            ← Volver a Universe Tarot
+          </button>
+          <button
+            onClick={() => router.push("/lectura")}
+            className="text-sm font-semibold text-white bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 px-4 py-2 rounded-full shadow-lg transition-all cursor-pointer"
+          >
+            Ir a Tirada Cruz Celta ✦
+          </button>
+        </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-center text-white mb-3 drop-shadow-lg">
           Arcanos Menores de Espadas
         </h1>
         <p className="text-center text-purple-200 mb-8 max-w-2xl mx-auto">
           Explora los Arcanos Menores de Espadas, asociados a la mente, las
-          ideas y la comunicación. Usa las flechas o selecciona una carta para
-          ver su imagen, descripción y significado.
+          ideas y la comunicación. Pasa el cursor sobre la carta para ver su
+          efecto holográfico 3D.
         </p>
 
         <div className="flex flex-col items-center gap-8">
-          {/* Carrusel principal */}
+          {/* Carrusel principal con efecto Reverse Leviathan */}
           <div className="w-full flex flex-col items-center">
-            <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="flex items-center justify-center gap-4 sm:gap-8 mb-6">
               <button
                 onClick={goPrev}
-                className="rounded-full bg-black/40 border border-purple-500/60 text-white w-10 h-10 flex items-center justify-center hover:bg-purple-700/70 transition-colors"
+                className="rounded-full bg-black/40 border border-purple-500/60 text-white w-11 h-11 flex items-center justify-center hover:bg-purple-700/70 transition-colors cursor-pointer text-lg"
                 aria-label="Carta anterior"
               >
                 ‹
               </button>
 
-              <div
-                className="relative rounded-xl overflow-hidden shadow-2xl border border-purple-500/50 bg-black/40"
-                style={{
-                  width: "min(70vw, 320px)",
-                  aspectRatio: "2/3",
-                }}
-              >
-                <Image
-                  src={currentCard.path}
-                  alt={currentCard.name}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 70vw, 320px"
-                />
-              </div>
+              <HoloTarotCard
+                src={currentCard.path}
+                alt={currentCard.name}
+                width="min(70vw, 320px)"
+                activateOnClick={true}
+                showcase={true}
+              />
 
               <button
                 onClick={goNext}
-                className="rounded-full bg-black/40 border border-purple-500/60 text-white w-10 h-10 flex items-center justify-center hover:bg-purple-700/70 transition-colors"
+                className="rounded-full bg-black/40 border border-purple-500/60 text-white w-11 h-11 flex items-center justify-center hover:bg-purple-700/70 transition-colors cursor-pointer text-lg"
                 aria-label="Carta siguiente"
               >
                 ›
@@ -108,7 +109,7 @@ export default function EspadasMinorArcanaPage() {
                 <button
                   key={card.id}
                   onClick={() => goToIndex(index)}
-                  className={`relative rounded-lg overflow-hidden border transition-all duration-150 ${
+                  className={`relative rounded-lg overflow-hidden border transition-all duration-150 cursor-pointer ${
                     index === currentIndex
                       ? "border-purple-400 ring-2 ring-purple-400/70 scale-105"
                       : "border-purple-500/40 hover:border-purple-300/80"
@@ -135,4 +136,3 @@ export default function EspadasMinorArcanaPage() {
     </div>
   );
 }
-

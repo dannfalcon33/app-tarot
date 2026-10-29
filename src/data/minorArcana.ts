@@ -297,7 +297,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 1,
     name: "As de Espadas",
-    path: "/tarot/Espadas/1 As de Espadas.webp",
+    path: "/tarot/Espadas/1-as-espadas.webp",
     suit: "Espadas",
     description: "Una nueva idea, claridad mental y la fuerza de la verdad.",
     meaning:
@@ -306,7 +306,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 2,
     name: "Dos de Espadas",
-    path: "/tarot/Espadas/2 Dos de Espadas.webp",
+    path: "/tarot/Espadas/2-dos-espadas.webp",
     suit: "Espadas",
     description: "Dilema y bloqueo mental, con dificultad para ver o elegir.",
     meaning:
@@ -315,7 +315,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 3,
     name: "Tres de Espadas",
-    path: "/tarot/Espadas/3 Tres de Espadas.webp",
+    path: "/tarot/Espadas/3-tres-espadas.webp",
     suit: "Espadas",
     description: "Dolor, ruptura o palabras que han herido profundamente.",
     meaning:
@@ -324,7 +324,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 4,
     name: "Cuatro de Espadas",
-    path: "/tarot/Espadas/4 Cuatro de Espadas.webp",
+    path: "/tarot/Espadas/4-cuatro-espadas.webp",
     suit: "Espadas",
     description: "Pausa mental para descansar, integrar y recuperar energía.",
     meaning:
@@ -333,7 +333,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 5,
     name: "Cinco de Espadas",
-    path: "/tarot/Espadas/5 Cinco de Espadas.webp",
+    path: "/tarot/Espadas/5-cinco-espadas.webp",
     suit: "Espadas",
     description:
       "Conflictos donde alguien gana a costa de otros, dejando tensión.",
@@ -343,7 +343,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 6,
     name: "Seis de Espadas",
-    path: "/tarot/Espadas/6 Seis de Espada.webp",
+    path: "/tarot/Espadas/6-seis-espadas.webp",
     suit: "Espadas",
     description:
       "Transición hacia aguas más tranquilas después de un periodo difícil.",
@@ -353,7 +353,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 7,
     name: "Siete de Espadas",
-    path: "/tarot/Espadas/7 Siete de Espadas.webp",
+    path: "/tarot/Espadas/7-siete-espadas.webp",
     suit: "Espadas",
     description:
       "Estrategias ocultas, evasión o acciones que no son del todo transparentes.",
@@ -363,7 +363,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 8,
     name: "Ocho de Espadas",
-    path: "/tarot/Espadas/8 Ocho de Espadas.webp",
+    path: "/tarot/Espadas/8-ocho-espadas.webp",
     suit: "Espadas",
     description:
       "Sensación de estar atrapado por tus propios pensamientos y miedos.",
@@ -373,7 +373,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 9,
     name: "Nueve de Espadas",
-    path: "/tarot/Espadas/9 Nueve de Espadas.webp",
+    path: "/tarot/Espadas/9-nueve-espadas.webp",
     suit: "Espadas",
     description:
       "Preocupaciones, ansiedad y pensamientos que no te dejan descansar.",
@@ -383,7 +383,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 10,
     name: "Diez de Espadas",
-    path: "/tarot/Espadas/10 Diez de Espadas.webp",
+    path: "/tarot/Espadas/10-diez-espadas.webp",
     suit: "Espadas",
     description:
       "Fin drástico de una situación, momento en el que ya no se puede caer más bajo.",
@@ -393,7 +393,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 11,
     name: "Sota de Espadas",
-    path: "/tarot/Espadas/Sota de Espadas.webp",
+    path: "/tarot/Espadas/11-page-espadas.webp",
     suit: "Espadas",
     description:
       "Curiosidad mental, ganas de aprender y observar con atención.",
@@ -403,7 +403,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 12,
     name: "Caballero de Espadas",
-    path: "/tarot/Espadas/Caballero de Espadas.webp",
+    path: "/tarot/Espadas/12-caballero-espadas.webp",
     suit: "Espadas",
     description:
       "Acción rápida motivada por ideas fuertes y convicciones intensas.",
@@ -413,7 +413,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 13,
     name: "Reina de Espadas",
-    path: "/tarot/Espadas/Reina de Espadas.webp",
+    path: "/tarot/Espadas/13-reina-espadas.webp",
     suit: "Espadas",
     description:
       "Claridad, independencia y capacidad de decir la verdad sin adornos.",
@@ -423,7 +423,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 14,
     name: "Rey de Espadas",
-    path: "/tarot/Espadas/Rey de Espadas.webp",
+    path: "/tarot/Espadas/14-rey-espadas.webp",
     suit: "Espadas",
     description:
       "Dominio mental, justicia y capacidad de tomar decisiones objetivas.",

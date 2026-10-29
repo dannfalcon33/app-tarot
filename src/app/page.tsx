@@ -71,7 +71,7 @@ const ARCANA_COLLECTIONS = [
     description:
       "Reflejan el pensamiento, las decisiones estratégicas, la comunicación honesta y los desafíos mentales.",
     href: "/arcanos-menores/espadas",
-    preview: "/tarot/Espadas/1 As de Espadas.webp",
+    preview: "/tarot/Espadas/1-as-espadas.webp",
     badge: "14 Cartas",
     accent: "from-indigo-500/25 via-slate-400/15 to-purple-900/30",
     border: "border-indigo-400/35 hover:border-indigo-300",

@@ -27,7 +27,7 @@ export interface CelticCrossPosition {
   group: "cruz" | "baston";
 }
 
-export const REVERSO_PATH = "/tarot/reverso.webp";
+export const REVERSO_PATH = "/tarot/reverse-universe.webp";
 
 export const ALL_TAROT_CARDS: UnifiedTarotCard[] = [
   ...MAJOR_ARCANA.map((card) => ({

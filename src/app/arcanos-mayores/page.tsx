@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { MAJOR_ARCANA } from "@/data/majorArcana";
+import HoloTarotCard from "@/components/HoloTarotCard";
 
 export default function MajorArcanaCarouselPage() {
   const router = useRouter();
@@ -47,41 +48,34 @@ export default function MajorArcanaCarouselPage() {
           Arcanos Mayores
         </h1>
         <p className="text-center text-purple-200 mb-8 max-w-2xl mx-auto">
-          Explora cada Arcano Mayor en detalle. Usa las flechas o selecciona
-          una carta para ver su imagen, descripción y significado.
+          Explora cada Arcano Mayor en detalle. Pasa el cursor sobre la carta
+          para activar el efecto holográfico 3D o usa las flechas para cambiar
+          de arcano.
         </p>
 
         <div className="flex flex-col items-center gap-8">
-          {/* Carrusel principal */}
+          {/* Carrusel principal con efecto Reverse Leviathan */}
           <div className="w-full flex flex-col items-center">
-            <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="flex items-center justify-center gap-4 sm:gap-8 mb-6">
               <button
                 onClick={goPrev}
-                className="rounded-full bg-black/40 border border-purple-500/60 text-white w-10 h-10 flex items-center justify-center hover:bg-purple-700/70 transition-colors cursor-pointer"
+                className="rounded-full bg-black/40 border border-purple-500/60 text-white w-11 h-11 flex items-center justify-center hover:bg-purple-700/70 transition-colors cursor-pointer text-lg"
                 aria-label="Carta anterior"
               >
                 ‹
               </button>
 
-              <div
-                className="relative rounded-xl overflow-hidden shadow-2xl border border-purple-500/50 bg-black/40"
-                style={{
-                  width: "min(70vw, 320px)",
-                  aspectRatio: "2/3",
-                }}
-              >
-                <Image
-                  src={currentCard.path}
-                  alt={currentCard.name}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 70vw, 320px"
-                />
-              </div>
+              <HoloTarotCard
+                src={currentCard.path}
+                alt={currentCard.name}
+                width="min(70vw, 320px)"
+                activateOnClick={true}
+                showcase={true}
+              />
 
               <button
                 onClick={goNext}
-                className="rounded-full bg-black/40 border border-purple-500/60 text-white w-10 h-10 flex items-center justify-center hover:bg-purple-700/70 transition-colors cursor-pointer"
+                className="rounded-full bg-black/40 border border-purple-500/60 text-white w-11 h-11 flex items-center justify-center hover:bg-purple-700/70 transition-colors cursor-pointer text-lg"
                 aria-label="Carta siguiente"
               >
                 ›
