@@ -1,377 +1,767 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
-import MajorArcanaButton, {
-  ArcanaNavButton,
-} from "@/components/MajorArcanaButton";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import {
+  CELTIC_CROSS_POSITIONS,
+  CONSULTATION_TOPICS,
+  REVERSO_PATH,
+} from "@/data/tarotSpread";
 
-// Función para barajar array (Fisher-Yates shuffle)
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
-
-// Lista completa de todas las cartas del tarot con sus rutas
-interface TarotCard {
-  path: string;
-  name: string;
-}
-
-const ALL_TAROT_CARDS: TarotCard[] = [
-  // Arcanos Mayores
-  { path: "/tarot/Arcanos Mayores/1 El Mago.webp", name: "El Mago" },
+const HERO_PREVIEW_CARDS = [
   {
-    path: "/tarot/Arcanos Mayores/2 La Alta Sacerdotiza.webp",
-    name: "La Sacerdotisa",
+    name: "El Mago",
+    role: "1 · El Presente",
+    path: "/tarot/Arcanos Mayores/1 El Mago.webp",
+    rotate: "-rotate-12 -translate-x-10 translate-y-4",
   },
   {
-    path: "/tarot/Arcanos Mayores/3 La Emperatriz.webp",
-    name: "La Emperatriz",
-  },
-  { path: "/tarot/Arcanos Mayores/4 El Emperador.webp", name: "El Emperador" },
-  { path: "/tarot/Arcanos Mayores/5 El Hierofante.webp", name: "El Papa" },
-  {
-    path: "/tarot/Arcanos Mayores/6 Los Enamorados.webp",
-    name: "Los Enamorados",
-  },
-  { path: "/tarot/Arcanos Mayores/7 El Carro.webp", name: "El Carro" },
-  { path: "/tarot/Arcanos Mayores/8 La Justicia.webp", name: "La Justicia" },
-  { path: "/tarot/Arcanos Mayores/9 El Ermitano.webp", name: "El Ermitaño" },
-  {
-    path: "/tarot/Arcanos Mayores/10 La Rueda de la Fortuna.webp",
-    name: "La Rueda de la Fortuna",
-  },
-  { path: "/tarot/Arcanos Mayores/11 La Fuerza.webp", name: "La Fuerza" },
-  { path: "/tarot/Arcanos Mayores/12 El Colgado.webp", name: "El Colgado" },
-  { path: "/tarot/Arcanos Mayores/13 La Muerte.webp", name: "La Muerte" },
-  { path: "/tarot/Arcanos Mayores/14 La Templanza.webp", name: "La Templanza" },
-  { path: "/tarot/Arcanos Mayores/15 El Diablo.webp", name: "El Diablo" },
-  { path: "/tarot/Arcanos Mayores/16 La Torre.webp", name: "La Torre" },
-  { path: "/tarot/Arcanos Mayores/17 La Estrella.webp", name: "La Estrella" },
-  { path: "/tarot/Arcanos Mayores/18 La Luna.webp", name: "La Luna" },
-  { path: "/tarot/Arcanos Mayores/19 El Sol.webp", name: "El Sol" },
-  { path: "/tarot/Arcanos Mayores/20 El Juicio.webp", name: "El Juicio" },
-  { path: "/tarot/Arcanos Mayores/21 El Mundo.webp", name: "El Mundo" },
-  { path: "/tarot/Arcanos Mayores/0 El Loco.webp", name: "El Loco" },
-
-  // Bastos
-  { path: "/tarot/Bastos/As de Bastos.webp", name: "As de Bastos" },
-  { path: "/tarot/Bastos/Dos de Bastos.webp", name: "Dos de Bastos" },
-  { path: "/tarot/Bastos/Tres de Bastos.webp", name: "Tres de Bastos" },
-  { path: "/tarot/Bastos/Cuatro de Bastos.webp", name: "Cuatro de Bastos" },
-  { path: "/tarot/Bastos/Cinco de Bastos.webp", name: "Cinco de Bastos" },
-  { path: "/tarot/Bastos/Seis de Bastos.webp", name: "Seis de Bastos" },
-  { path: "/tarot/Bastos/Siete de Bastos.webp", name: "Siete de Bastos" },
-  { path: "/tarot/Bastos/Ocho de Bastos.webp", name: "Ocho de Bastos" },
-  { path: "/tarot/Bastos/Nueve de Bastos.webp", name: "Nueve de Bastos" },
-  { path: "/tarot/Bastos/Diez de Bastos.webp", name: "Diez de Bastos" },
-  { path: "/tarot/Bastos/Sota de Bastos.webp", name: "Sota de Bastos" },
-  {
-    path: "/tarot/Bastos/Caballero de Bastos.webp",
-    name: "Caballero de Bastos",
-  },
-  { path: "/tarot/Bastos/Reina de Bastos.webp", name: "Reina de Bastos" },
-  { path: "/tarot/Bastos/Rey de Bastos.webp", name: "Rey de Bastos" },
-
-  // Copas
-  { path: "/tarot/Copas/As de Copas.webp", name: "As de Copas" },
-  { path: "/tarot/Copas/Dos de Copas.webp", name: "Dos de Copas" },
-  { path: "/tarot/Copas/Tres de Copas.webp", name: "Tres de Copas" },
-  { path: "/tarot/Copas/Cuatro de Copas.webp", name: "Cuatro de Copas" },
-  { path: "/tarot/Copas/Cinco de Copas.webp", name: "Cinco de Copas" },
-  { path: "/tarot/Copas/Seis de Copas.webp", name: "Seis de Copas" },
-  { path: "/tarot/Copas/Siete de Copas.webp", name: "Siete de Copas" },
-  { path: "/tarot/Copas/Ocho de Copas.webp", name: "Ocho de Copas" },
-  { path: "/tarot/Copas/Nueve de Copas.webp", name: "Nueve de Copas" },
-  { path: "/tarot/Copas/Diez de Copas.webp", name: "Diez de Copas" },
-  { path: "/tarot/Copas/Sota de Copas.webp", name: "Sota de Copas" },
-  { path: "/tarot/Copas/Caballero de Copas.webp", name: "Caballero de Copas" },
-  { path: "/tarot/Copas/Reina de Copas.webp", name: "Reina de Copas" },
-  { path: "/tarot/Copas/Rey de Copas.webp", name: "Rey de Copas" },
-
-  // Espadas
-  { path: "/tarot/Espadas/1 As de Espadas.webp", name: "As de Espadas" },
-  { path: "/tarot/Espadas/2 Dos de Espadas.webp", name: "Dos de Espadas" },
-  { path: "/tarot/Espadas/3 Tres de Espadas.webp", name: "Tres de Espadas" },
-  {
-    path: "/tarot/Espadas/4 Cuatro de Espadas.webp",
-    name: "Cuatro de Espadas",
-  },
-  { path: "/tarot/Espadas/5 Cinco de Espadas.webp", name: "Cinco de Espadas" },
-  { path: "/tarot/Espadas/6 Seis de Espada.webp", name: "Seis de Espadas" },
-  { path: "/tarot/Espadas/7 Siete de Espadas.webp", name: "Siete de Espadas" },
-  { path: "/tarot/Espadas/8 Ocho de Espadas.webp", name: "Ocho de Espadas" },
-  { path: "/tarot/Espadas/9 Nueve de Espadas.webp", name: "Nueve de Espadas" },
-  { path: "/tarot/Espadas/10 Diez de Espadas.webp", name: "Diez de Espadas" },
-  { path: "/tarot/Espadas/Sota de Espadas.webp", name: "Sota de Espadas" },
-  {
-    path: "/tarot/Espadas/Caballero de Espadas.webp",
-    name: "Caballero de Espadas",
-  },
-  { path: "/tarot/Espadas/Reina de Espadas.webp", name: "Reina de Espadas" },
-  { path: "/tarot/Espadas/Rey de Espadas.webp", name: "Rey de Espadas" },
-
-  // Pentáculos
-  { path: "/tarot/Pentaculos/As de Pentaculos.webp", name: "As de Pentáculos" },
-  {
-    path: "/tarot/Pentaculos/Dos de Pentaculos.webp",
-    name: "Dos de Pentáculos",
+    name: "La Estrella",
+    role: "5 · La Corona",
+    path: "/tarot/Arcanos Mayores/17 La Estrella.webp",
+    rotate: "rotate-0 -translate-y-2 z-20 scale-105",
   },
   {
-    path: "/tarot/Pentaculos/Tres de Pentaculos.webp",
-    name: "Tres de Pentáculos",
-  },
-  {
-    path: "/tarot/Pentaculos/Cuatro de Pentaculos.webp",
-    name: "Cuatro de Pentáculos",
-  },
-  {
-    path: "/tarot/Pentaculos/Cinco de Pentaculos.webp",
-    name: "Cinco de Pentáculos",
-  },
-  {
-    path: "/tarot/Pentaculos/Seis de Pentaculos.webp",
-    name: "Seis de Pentáculos",
-  },
-  {
-    path: "/tarot/Pentaculos/Siete de Pentaculos.webp",
-    name: "Siete de Pentáculos",
-  },
-  {
-    path: "/tarot/Pentaculos/Ocho de Pentaculos.webp",
-    name: "Ocho de Pentáculos",
-  },
-  {
-    path: "/tarot/Pentaculos/Nueve de Pentaculos.webp",
-    name: "Nueve de Pentáculos",
-  },
-  {
-    path: "/tarot/Pentaculos/Diez de Pentaculos.webp",
-    name: "Diez de Pentáculos",
-  },
-  {
-    path: "/tarot/Pentaculos/Sota de Pentaculos.webp",
-    name: "Sota de Pentáculos",
-  },
-  {
-    path: "/tarot/Pentaculos/Caballero de Pentaculos.webp",
-    name: "Caballero de Pentáculos",
-  },
-  {
-    path: "/tarot/Pentaculos/Reina de Pentaculos.webp",
-    name: "Reina de Pentáculos",
-  },
-  {
-    path: "/tarot/Pentaculos/Rey de Pentáculos.webp",
-    name: "Rey de Pentáculos",
+    name: "El Mundo",
+    role: "10 · Resultado Final",
+    path: "/tarot/Arcanos Mayores/21 El Mundo.webp",
+    rotate: "rotate-12 translate-x-10 translate-y-4",
   },
 ];
 
-const REVERSO_PATH = "/tarot/reverso.webp";
+const ARCANA_COLLECTIONS = [
+  {
+    title: "Arcanos Mayores",
+    subtitle: "22 Cartas · El Viaje del Alma",
+    description:
+      "Los grandes arquetipos cósmicos que marcan lecciones profundas, cambios de ciclo y despertares espirituales.",
+    href: "/arcanos-mayores",
+    preview: "/tarot/Arcanos Mayores/17 La Estrella.webp",
+    badge: "22 Arcanos",
+    accent: "from-purple-500/30 via-fuchsia-500/20 to-indigo-600/30",
+    border: "border-purple-400/40 hover:border-purple-300",
+  },
+  {
+    title: "Bastos",
+    subtitle: "Elemento Fuego · Energía y Acción",
+    description:
+      "Representan la chispa creativa, la voluntad, la pasión, el impulso emprendedor y el movimiento.",
+    href: "/arcanos-menores/bastos",
+    preview: "/tarot/Bastos/As de Bastos.webp",
+    badge: "14 Cartas",
+    accent: "from-amber-500/25 via-orange-500/15 to-purple-900/30",
+    border: "border-amber-400/35 hover:border-amber-300",
+  },
+  {
+    title: "Copas",
+    subtitle: "Elemento Agua · Emoción e Intuición",
+    description:
+      "Hablan del mundo afectivo, los vínculos del corazón, la sensibilidad psíquica y los sueños.",
+    href: "/arcanos-menores/copas",
+    preview: "/tarot/Copas/As de Copas.webp",
+    badge: "14 Cartas",
+    accent: "from-cyan-500/25 via-blue-500/15 to-purple-900/30",
+    border: "border-cyan-400/35 hover:border-cyan-300",
+  },
+  {
+    title: "Espadas",
+    subtitle: "Elemento Aire · Mente y Verdad",
+    description:
+      "Reflejan el pensamiento, las decisiones estratégicas, la comunicación honesta y los desafíos mentales.",
+    href: "/arcanos-menores/espadas",
+    preview: "/tarot/Espadas/1 As de Espadas.webp",
+    badge: "14 Cartas",
+    accent: "from-indigo-500/25 via-slate-400/15 to-purple-900/30",
+    border: "border-indigo-400/35 hover:border-indigo-300",
+  },
+  {
+    title: "Pentáculos",
+    subtitle: "Elemento Tierra · Materia y Abundancia",
+    description:
+      "Conectan con la manifestación tangible, el trabajo, los recursos, el cuerpo y la prosperidad.",
+    href: "/arcanos-menores/pentaculos",
+    preview: "/tarot/Pentaculos/As de Pentaculos.webp",
+    badge: "14 Cartas",
+    accent: "from-emerald-500/25 via-teal-500/15 to-purple-900/30",
+    border: "border-emerald-400/35 hover:border-emerald-300",
+  },
+];
 
-interface CardState {
-  card: TarotCard | null;
-  isFlipped: boolean;
-}
+export default function UniverseTarotLandingPage() {
+  const router = useRouter();
+  const [selectedTopicId, setSelectedTopicId] = useState<string>("general");
+  const [customQuestion, setCustomQuestion] = useState<string>("");
+  const [questionError, setQuestionError] = useState<string | null>(null);
+  const [highlightedPosition, setHighlightedPosition] = useState<number>(1);
+  const questionInputRef = useRef<HTMLInputElement | null>(null);
 
-export default function Home() {
-  const [cardStates, setCardStates] = useState<CardState[]>([]);
-  const [isShuffling, setIsShuffling] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false);
+  const activeTopic =
+    CONSULTATION_TOPICS.find((t) => t.id === selectedTopicId) ||
+    CONSULTATION_TOPICS[0];
 
-  const startReading = () => {
-    setHasStarted(true);
-    dealNewCards();
-  };
+  const activeCelticPos =
+    CELTIC_CROSS_POSITIONS.find((p) => p.position === highlightedPosition) ||
+    CELTIC_CROSS_POSITIONS[0];
 
-  const dealNewCards = () => {
-    setIsShuffling(true);
-
-    // Barajar todas las cartas
-    const shuffled = shuffleArray(ALL_TAROT_CARDS);
-
-    // Crear 12 posiciones de cartas (2 filas x 6 columnas), todas en reverso inicialmente
-    const initialStates: CardState[] = Array.from(
-      { length: 12 },
-      (_, index) => ({
-        card: shuffled[index],
-        isFlipped: false,
-      }),
-    );
-
-    // Animación de barajado con un pequeño delay
+  const focusConsultationForm = () => {
+    const el = document.getElementById("consulta");
+    el?.scrollIntoView({ behavior: "smooth", block: "center" });
     setTimeout(() => {
-      setCardStates(initialStates);
-      setIsShuffling(false);
-    }, 500);
+      questionInputRef.current?.focus();
+    }, 300);
   };
 
-  const flipCard = (index: number) => {
-    if (cardStates[index].isFlipped) return; // No permitir voltear cartas ya volteadas
+  const handleStartReading = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
 
-    setCardStates((prev) => {
-      const newStates = [...prev];
-      newStates[index] = {
-        ...newStates[index],
-        isFlipped: true,
-      };
-      return newStates;
-    });
-  };
+    const trimmed = customQuestion.trim();
+    if (!trimmed || trimmed.length < 5) {
+      setQuestionError(
+        "Por favor, escribe tu pregunta o intención (mínimo 5 caracteres) para que la IA analice tu tirada con coherencia.",
+      );
+      focusConsultationForm();
+      return;
+    }
 
-  const resetReading = () => {
-    setCardStates([]);
-    setHasStarted(false);
-    setIsShuffling(false);
+    setQuestionError(null);
+    const params = new URLSearchParams();
+    params.set("tema", selectedTopicId);
+    params.set("consulta", trimmed);
+    router.push(`/lectura?${params.toString()}`);
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center py-8 px-4">
-      <div className="w-full max-w-7xl">
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-white mb-2 drop-shadow-lg">
-          Lectura de Tarot
-        </h1>
-        <p className="text-center text-purple-200 mb-6 text-lg">
-          Haz clic en cada carta para revelarla.
-        </p>
-
-        {!hasStarted && (
-          <div className="flex flex-col items-center gap-4 mb-8">
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-3">
-              <button
-                onClick={startReading}
-                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 px-7 rounded-full text-lg shadow-2xl transform transition-all duration-200 hover:scale-105 active:scale-95"
-              >
-                Iniciar Lectura
-              </button>
-              <MajorArcanaButton />
+    <div className="min-h-screen flex flex-col justify-between text-slate-100">
+      {/* Barra de Navegación */}
+      <header className="sticky top-0 z-40 backdrop-blur-xl bg-black/50 border-b border-purple-500/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 via-fuchsia-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:scale-105 transition-transform">
+              <span className="text-xl text-white">✦</span>
             </div>
-
-            <div className="flex flex-wrap justify-center gap-3">
-              <ArcanaNavButton
-                label="Ver Arcanos Menores de Pentáculos"
-                href="/arcanos-menores/pentaculos"
-              />
-              <ArcanaNavButton
-                label="Ver Arcanos Menores de Espadas"
-                href="/arcanos-menores/espadas"
-              />
-              <ArcanaNavButton
-                label="Ver Arcanos Menores de Copas"
-                href="/arcanos-menores/copas"
-              />
-              <ArcanaNavButton
-                label="Ver Arcanos Menores de Bastos"
-                href="/arcanos-menores/bastos"
-              />
+            <div>
+              <span className="text-xl font-bold tracking-wide bg-gradient-to-r from-white via-purple-200 to-fuchsia-300 bg-clip-text text-transparent">
+                Universe Tarot
+              </span>
+              <span className="hidden sm:block text-[11px] uppercase tracking-widest text-purple-300/80">
+                Oráculo de Cruz Celta con IA
+              </span>
             </div>
-          </div>
-        )}
+          </Link>
 
-        {hasStarted && (
-          <>
-            {isShuffling ? (
-              <div className="flex justify-center items-center min-h-[400px]">
-                <div className="text-center">
-                  <div className="inline-block animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-purple-300 mb-4"></div>
-                  <p className="text-white text-xl">Barajando cartas...</p>
-                </div>
+          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-purple-200/90">
+            <a
+              href="#consulta"
+              className="hover:text-white transition-colors"
+            >
+              Consulta General
+            </a>
+            <a
+              href="#como-funciona"
+              className="hover:text-white transition-colors"
+            >
+              Cómo Funciona
+            </a>
+            <a
+              href="#cruz-celta"
+              className="hover:text-white transition-colors"
+            >
+              La Cruz Celta
+            </a>
+            <a
+              href="#biblioteca"
+              className="hover:text-white transition-colors"
+            >
+              78 Arcanos
+            </a>
+          </nav>
+
+          <button
+            onClick={() => handleStartReading()}
+            className="bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white font-semibold text-sm px-5 py-2.5 rounded-full shadow-lg shadow-purple-600/30 border border-purple-400/30 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+          >
+            Hacer Tirada ✦
+          </button>
+        </div>
+      </header>
+
+      {/* Contenido Principal */}
+      <main className="flex-1">
+        {/* HERO SECTION */}
+        <section
+          id="consulta"
+          className="relative pt-10 pb-20 md:pt-16 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Columna Izquierda: Presentación y Caja de Consulta */}
+            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-950/70 border border-purple-400/35 text-purple-200 text-xs sm:text-sm font-medium shadow-inner">
+                <span className="text-fuchsia-400">✦</span>
+                <span>
+                  Tirada de Cruz Celta · 10 Cartas + Interpretación IA
+                </span>
               </div>
-            ) : (
-              <>
-                {/* 12 cartas en layout responsive: 1 col ultra-móvil, 2 cols móvil, 3-4 cols tablets, 6 cols desktop */}
-                <div className="grid max-[360px]:grid-cols-1 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 max-[360px]:gap-2 gap-3 sm:gap-4 md:gap-5 mb-8 px-2 md:px-4 justify-center">
-                  {cardStates.map((cardState, index) => (
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                Conecta tu consulta con{" "}
+                <span className="bg-gradient-to-r from-purple-300 via-fuchsia-300 to-amber-200 bg-clip-text text-transparent">
+                  Universe Tarot
+                </span>
+              </h1>
+
+              <p className="text-base sm:text-lg text-purple-100/85 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                Un espacio interactivo y moderno para consultar al tarot sobre
+                cualquier inquietud de tu vida. Escribe tu pregunta para que el
+                mazo de 78 cartas realice tu tirada única de Cruz Celta y la IA
+                analice tu respuesta con total coherencia.
+              </p>
+
+              {/* Tarjeta Interactiva de Consulta General */}
+              <form
+                onSubmit={handleStartReading}
+                noValidate
+                className="bg-black/55 backdrop-blur-xl border border-purple-500/35 rounded-3xl p-5 sm:p-7 shadow-2xl shadow-purple-950/50 text-left space-y-5"
+              >
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-purple-300 mb-3">
+                    1. Elige el enfoque de tu consulta
+                  </label>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                    {CONSULTATION_TOPICS.map((topic) => {
+                      const isSelected = topic.id === selectedTopicId;
+                      return (
+                        <button
+                          key={topic.id}
+                          type="button"
+                          onClick={() => setSelectedTopicId(topic.id)}
+                          className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-medium border transition-all cursor-pointer ${
+                            isSelected
+                              ? "bg-purple-600/40 border-purple-300 text-white shadow-md shadow-purple-500/20"
+                              : "bg-purple-950/30 border-purple-500/25 text-purple-200/80 hover:border-purple-400/50 hover:text-white"
+                          }`}
+                        >
+                          <span>{topic.icon}</span>
+                          <span className="truncate">{topic.label}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <label
+                      htmlFor="consulta-input"
+                      className="block text-xs font-semibold uppercase tracking-wider text-purple-300"
+                    >
+                      2. Escribe tu pregunta o intención{" "}
+                      <span className="text-amber-300 font-bold">
+                        (Obligatorio *)
+                      </span>
+                    </label>
+                    <span className="text-[11px] text-purple-300/75">
+                      Guía para el análisis de IA
+                    </span>
+                  </div>
+                  <input
+                    ref={questionInputRef}
+                    id="consulta-input"
+                    type="text"
+                    required
+                    value={customQuestion}
+                    onChange={(e) => {
+                      setCustomQuestion(e.target.value);
+                      if (questionError) setQuestionError(null);
+                    }}
+                    placeholder={activeTopic.promptPlaceholder}
+                    className={`w-full rounded-2xl bg-purple-950/40 border px-4 py-3.5 text-sm sm:text-base text-white placeholder-purple-300/45 focus:outline-none focus:ring-2 transition-all ${
+                      questionError
+                        ? "border-amber-400 focus:border-amber-400 focus:ring-amber-400/30"
+                        : "border-purple-500/35 focus:border-fuchsia-400 focus:ring-fuchsia-500/30"
+                    }`}
+                  />
+                  {questionError ? (
+                    <p className="mt-2 text-xs sm:text-sm text-amber-300 font-medium flex items-center gap-1.5">
+                      <span>⚠</span>
+                      <span>{questionError}</span>
+                    </p>
+                  ) : (
+                    <p className="mt-2 text-xs text-purple-300/70">
+                      Tu pregunta servirá como prompt guía para que la IA
+                      conecte las 10 cartas de la Cruz Celta con tu situación.
+                    </p>
+                  )}
+                </div>
+
+                <div className="pt-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                  <button
+                    type="submit"
+                    className="flex-1 bg-gradient-to-r from-purple-600 via-fuchsia-600 to-indigo-600 hover:from-purple-500 hover:via-fuchsia-500 hover:to-indigo-500 text-white font-bold py-4 px-7 rounded-2xl text-base sm:text-lg shadow-xl shadow-purple-600/35 border border-purple-300/30 transition-all hover:scale-[1.02] active:scale-[0.99] cursor-pointer flex items-center justify-center gap-2"
+                  >
+                    <span>Iniciar mi Lectura de 10 Cartas</span>
+                    <span className="text-xl">→</span>
+                  </button>
+                </div>
+
+                <div className="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs text-purple-300/75 border-t border-purple-500/20">
+                  <span>✦ Mazo completo: 22 Mayores + 56 Menores</span>
+                  <span>✦ Tirada única por consulta</span>
+                  <span>✦ Interpretación con IA coherente</span>
+                </div>
+              </form>
+            </div>
+
+            {/* Columna Derecha: Visual Cósmico de Cartas en Abanico */}
+            <div className="lg:col-span-5 flex flex-col items-center justify-center">
+              <div className="relative w-full max-w-md h-[380px] sm:h-[430px] flex items-center justify-center">
+                {/* Halo luminoso detrás de las cartas */}
+                <div className="absolute w-72 h-72 rounded-full bg-gradient-to-tr from-purple-600/35 via-fuchsia-500/25 to-indigo-500/30 blur-3xl pointer-events-none" />
+
+                <div className="relative flex items-center justify-center animate-float-slow">
+                  {HERO_PREVIEW_CARDS.map((card, idx) => (
                     <div
-                      key={index}
-                      onClick={() => flipCard(index)}
-                      className="relative cursor-pointer mx-auto"
+                      key={card.name}
+                      onClick={() => handleStartReading()}
+                      className={`relative w-36 sm:w-44 aspect-[2/3] rounded-2xl overflow-hidden shadow-2xl border border-purple-300/40 bg-black/80 transition-all duration-500 hover:scale-110 hover:z-30 cursor-pointer ${card.rotate}`}
                       style={{
-                        width: "100%",
-                        // Máximo ancho: casi pantalla completa en ultra-móvil; tope 160px en desktop
-                        maxWidth: "min(90vw, 160px)",
-                        aspectRatio: "2/3",
-                        perspective: "1000px",
+                        marginLeft: idx === 0 ? "0" : "-48px",
                       }}
                     >
-                      <div
-                        className="relative w-full h-full transition-transform duration-700"
-                        style={{
-                          transformStyle: "preserve-3d",
-                          transform: cardState.isFlipped
-                            ? "rotateY(180deg)"
-                            : "rotateY(0deg)",
-                        }}
-                      >
-                        {/* Cara delantera (reverso) */}
-                        <div
-                          className="absolute inset-0 w-full h-full backface-hidden rounded-lg shadow-2xl overflow-hidden"
-                          style={{
-                            backfaceVisibility: "hidden",
-                            transform: "rotateY(0deg)",
-                          }}
-                        >
-                          <Image
-                            src={REVERSO_PATH}
-                            alt="Reverso de carta"
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 360px) 90vw, (max-width: 640px) 45vw, (max-width: 768px) 30vw, (max-width: 1024px) 22vw, 160px"
-                          />
-                        </div>
-
-                        {/* Cara trasera (carta) */}
-                        <div
-                          className="absolute inset-0 w-full h-full backface-hidden rounded-lg shadow-2xl overflow-hidden"
-                          style={{
-                            backfaceVisibility: "hidden",
-                            transform: "rotateY(180deg)",
-                          }}
-                        >
-                          {cardState.card && (
-                            <Image
-                              src={cardState.card.path}
-                              alt={cardState.card.name}
-                              fill
-                              className="object-cover"
-                              sizes="(max-width: 360px) 90vw, (max-width: 640px) 45vw, (max-width: 768px) 30vw, (max-width: 1024px) 22vw, 160px"
-                            />
-                          )}
-                          {/* Nombre de la carta al hover */}
-                          <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-50 transition-all duration-300 flex items-end justify-center opacity-0 hover:opacity-100">
-                            <p className="text-white text-xs md:text-sm font-bold mb-2 px-2 text-center">
-                              {cardState.card?.name}
-                            </p>
-                          </div>
-                        </div>
+                      <Image
+                        src={card.path}
+                        alt={card.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 144px, 176px"
+                        priority
+                      />
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent p-3 text-center">
+                        <p className="text-[10px] uppercase tracking-wider text-purple-300 font-semibold">
+                          {card.role}
+                        </p>
+                        <p className="text-xs sm:text-sm font-bold text-white">
+                          {card.name}
+                        </p>
                       </div>
                     </div>
                   ))}
                 </div>
-                <div className="flex justify-center gap-4">
-                  <button
-                    onClick={resetReading}
-                    className="bg-black/40 border border-purple-500/60 hover:border-purple-300 text-purple-100 hover:text-white font-semibold py-3 px-6 rounded-full text-sm sm:text-base shadow-xl transition-all duration-200 hover:scale-105 active:scale-95"
-                  >
-                    Volver
-                  </button>
-                  <button
-                    onClick={dealNewCards}
-                    className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-full shadow-xl transform transition-all duration-200 hover:scale-105 active:scale-95"
-                  >
-                    Barajar de Nuevo
-                  </button>
+              </div>
+
+              <p className="text-xs text-purple-300/80 text-center max-w-xs mt-2">
+                Escribe tu pregunta en el formulario y pulsa el botón principal
+                para generar tu tirada de Cruz Celta.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* SECCIÓN: CÓMO FUNCIONA */}
+        <section
+          id="como-funciona"
+          className="py-16 px-4 sm:px-6 lg:px-8 border-t border-purple-500/20 bg-black/30 backdrop-blur-sm"
+        >
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <span className="text-xs font-semibold uppercase tracking-widest text-fuchsia-400">
+                El Ritual Interactivo
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2 mb-3">
+                ¿Cómo realizar tu tirada en Universe Tarot?
+              </h2>
+              <p className="text-purple-200/80 text-base">
+                Una experiencia estructurada donde tu intención guía la mezcla
+                del mazo y el análisis del Oráculo de IA.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-purple-950/25 border border-purple-500/30 rounded-3xl p-6 sm:p-8 backdrop-blur-md hover:border-purple-400/60 transition-all">
+                <div className="w-12 h-12 rounded-2xl bg-purple-600/30 border border-purple-400/40 flex items-center justify-center text-xl font-bold text-purple-200 mb-5">
+                  01
                 </div>
-              </>
-            )}
-          </>
-        )}
-      </div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  Formula tu Pregunta Guía
+                </h3>
+                <p className="text-sm sm:text-base text-purple-200/80 leading-relaxed">
+                  Escribe de forma clara lo que deseas consultar y selecciona
+                  el ámbito de tu pregunta. Este texto es obligatorio porque
+                  actúa como el eje rector de toda tu lectura.
+                </p>
+              </div>
+
+              <div className="bg-purple-950/25 border border-purple-500/30 rounded-3xl p-6 sm:p-8 backdrop-blur-md hover:border-purple-400/60 transition-all">
+                <div className="w-12 h-12 rounded-2xl bg-fuchsia-600/30 border border-fuchsia-400/40 flex items-center justify-center text-xl font-bold text-fuchsia-200 mb-5">
+                  02
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  Barajado Único y Sagrado
+                </h3>
+                <p className="text-sm sm:text-base text-purple-200/80 leading-relaxed">
+                  Al iniciar tu consulta, el motor mezcla las 78 cartas del
+                  tarot mediante el algoritmo Fisher-Yates y fija tus 10 cartas
+                  destinadas a responder específicamente a tu pregunta.
+                </p>
+              </div>
+
+              <div className="bg-purple-950/25 border border-purple-500/30 rounded-3xl p-6 sm:p-8 backdrop-blur-md hover:border-purple-400/60 transition-all">
+                <div className="w-12 h-12 rounded-2xl bg-indigo-600/30 border border-indigo-400/40 flex items-center justify-center text-xl font-bold text-indigo-200 mb-5">
+                  03
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  Revela e Interpreta con IA
+                </h3>
+                <p className="text-sm sm:text-base text-purple-200/80 leading-relaxed">
+                  Descubre cada una de las 10 cartas de la Cruz Celta y solicita
+                  la interpretación con IA para obtener una lectura coherente
+                  que enlaza cada posición con tu pregunta inicial.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECCIÓN: EXPLICACIÓN INTERACTIVA DE LA CRUZ CELTA (10 CARTAS) */}
+        <section
+          id="cruz-celta"
+          className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
+        >
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-xs font-semibold uppercase tracking-widest text-purple-300">
+              Estructura de 10 Cartas
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2 mb-3">
+              La Tirada de la Cruz Celta
+            </h2>
+            <p className="text-purple-200/80 text-base">
+              Considerada la tirada más completa del tarot clásico, divide las
+              10 cartas en dos secciones: el{" "}
+              <strong className="text-purple-200">Círculo Central (1–6)</strong>{" "}
+              y el{" "}
+              <strong className="text-fuchsia-200">
+                Bastón del Destino (7–10)
+              </strong>
+              . Selecciona cualquier posición para conocer su propósito:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Mapa interactivo de las 10 posiciones */}
+            <div className="lg:col-span-7 bg-black/50 border border-purple-500/30 rounded-3xl p-6 sm:p-8 backdrop-blur-md">
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+                {/* La Cruz (1 a 6) */}
+                <div className="sm:col-span-8">
+                  <p className="text-xs uppercase tracking-wider text-purple-300/80 text-center mb-4 font-semibold">
+                    I. La Cruz Central (Posiciones 1 a 6)
+                  </p>
+                  <div className="grid grid-cols-3 gap-2.5 max-w-xs mx-auto items-center justify-items-center">
+                    {/* Fila Superior: Posición 5 */}
+                    <div />
+                    <PositionMiniCard
+                      pos={5}
+                      label="Corona"
+                      active={highlightedPosition === 5}
+                      onClick={() => setHighlightedPosition(5)}
+                    />
+                    <div />
+
+                    {/* Fila Media: Posición 4, Centro (1 y 2), Posición 6 */}
+                    <PositionMiniCard
+                      pos={4}
+                      label="Pasado"
+                      active={highlightedPosition === 4}
+                      onClick={() => setHighlightedPosition(4)}
+                    />
+                    <div className="flex flex-col gap-1.5 w-full">
+                      <PositionMiniCard
+                        pos={1}
+                        label="Presente"
+                        active={highlightedPosition === 1}
+                        onClick={() => setHighlightedPosition(1)}
+                        compact
+                      />
+                      <PositionMiniCard
+                        pos={2}
+                        label="Desafío"
+                        active={highlightedPosition === 2}
+                        onClick={() => setHighlightedPosition(2)}
+                        compact
+                        crossed
+                      />
+                    </div>
+                    <PositionMiniCard
+                      pos={6}
+                      label="Futuro"
+                      active={highlightedPosition === 6}
+                      onClick={() => setHighlightedPosition(6)}
+                    />
+
+                    {/* Fila Inferior: Posición 3 */}
+                    <div />
+                    <PositionMiniCard
+                      pos={3}
+                      label="Base / Raíz"
+                      active={highlightedPosition === 3}
+                      onClick={() => setHighlightedPosition(3)}
+                    />
+                    <div />
+                  </div>
+                </div>
+
+                {/* El Bastón (7 a 10, de abajo hacia arriba como en la tradición) */}
+                <div className="sm:col-span-4 border-t sm:border-t-0 sm:border-l border-purple-500/20 pt-5 sm:pt-0 sm:pl-5">
+                  <p className="text-xs uppercase tracking-wider text-fuchsia-300/80 text-center mb-4 font-semibold">
+                    II. El Bastón (7 a 10)
+                  </p>
+                  <div className="flex sm:flex-col justify-center gap-2 max-w-xs mx-auto">
+                    {[10, 9, 8, 7].map((posNum) => {
+                      const posObj = CELTIC_CROSS_POSITIONS.find(
+                        (p) => p.position === posNum,
+                      )!;
+                      return (
+                        <PositionMiniCard
+                          key={posNum}
+                          pos={posNum}
+                          label={posObj.shortLabel}
+                          active={highlightedPosition === posNum}
+                          onClick={() => setHighlightedPosition(posNum)}
+                          compact
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Detalle de la posición seleccionada */}
+            <div className="lg:col-span-5 bg-gradient-to-br from-purple-950/50 via-black/60 to-indigo-950/40 border border-purple-400/35 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-5">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-fuchsia-600 flex items-center justify-center text-2xl font-extrabold text-white shadow-lg">
+                  #{activeCelticPos.position}
+                </div>
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-widest text-fuchsia-300">
+                    {activeCelticPos.group === "cruz"
+                      ? "Círculo Central · La Cruz"
+                      : "Columna Derecha · El Bastón"}
+                  </span>
+                  <h3 className="text-2xl font-bold text-white">
+                    {activeCelticPos.title}
+                  </h3>
+                  <p className="text-sm text-purple-300">
+                    {activeCelticPos.subtitle}
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-purple-100/90 text-base leading-relaxed border-t border-purple-500/25 pt-4">
+                {activeCelticPos.description}
+              </p>
+
+              <div className="pt-2 flex flex-wrap gap-1.5">
+                {CELTIC_CROSS_POSITIONS.map((p) => (
+                  <button
+                    key={p.position}
+                    type="button"
+                    onClick={() => setHighlightedPosition(p.position)}
+                    className={`w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                      p.position === highlightedPosition
+                        ? "bg-fuchsia-500 text-white shadow-md scale-105"
+                        : "bg-purple-950/50 border border-purple-500/30 text-purple-300 hover:text-white"
+                    }`}
+                  >
+                    {p.position}
+                  </button>
+                ))}
+              </div>
+
+              <div className="pt-3">
+                <button
+                  onClick={() => handleStartReading()}
+                  className="w-full bg-white/10 hover:bg-white/15 border border-purple-300/40 text-white font-semibold py-3.5 px-6 rounded-2xl transition-all cursor-pointer flex items-center justify-center gap-2"
+                >
+                  <span>Escribir mi Pregunta e Iniciar Tirada</span>
+                  <span>↑</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECCIÓN: BIBLIOTECA DE LOS 78 ARCANOS */}
+        <section
+          id="biblioteca"
+          className="py-16 px-4 sm:px-6 lg:px-8 border-t border-purple-500/20 bg-black/30"
+        >
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-widest text-fuchsia-400">
+                  Sabiduría del Mazo
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-bold text-white mt-1">
+                  Explora la Biblioteca de los 78 Arcanos
+                </h2>
+              </div>
+              <p className="text-purple-200/80 text-sm sm:text-base max-w-md">
+                ¿Quieres estudiar el significado individual de cada carta antes
+                de tu lectura? Recorre las galerías completas por palo.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+              {ARCANA_COLLECTIONS.map((item) => (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className={`group relative rounded-3xl p-5 bg-gradient-to-b ${item.accent} bg-black/60 border ${item.border} transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden shadow-xl`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <span className="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-black/50 text-purple-200 border border-white/10">
+                        {item.badge}
+                      </span>
+                      <span className="text-purple-300 group-hover:translate-x-1 transition-transform">
+                        →
+                      </span>
+                    </div>
+
+                    <div className="relative w-28 aspect-[2/3] mx-auto mb-4 rounded-xl overflow-hidden shadow-lg border border-white/20 group-hover:scale-105 transition-transform">
+                      <Image
+                        src={item.preview}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                        sizes="112px"
+                      />
+                    </div>
+
+                    <h3 className="text-lg font-bold text-white text-center mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-purple-200/90 text-center font-medium mb-2">
+                      {item.subtitle}
+                    </p>
+                    <p className="text-xs text-purple-100/75 text-center leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-white/10 text-center">
+                    <span className="text-xs font-semibold text-white group-hover:text-fuchsia-300 transition-colors">
+                      Ver Galería Completa
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* FOOTER */}
+      <footer className="border-t border-purple-500/20 bg-black/60 backdrop-blur-md py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-purple-300/75">
+          <div className="flex items-center gap-2">
+            <span className="text-fuchsia-400">✦</span>
+            <span className="font-semibold text-white">Universe Tarot</span>
+            <span>— Oráculo Cósmico de 10 Cartas (Cruz Celta)</span>
+          </div>
+          <div className="flex flex-wrap items-center gap-5">
+            <a
+              href="#consulta"
+              onClick={(e) => {
+                e.preventDefault();
+                focusConsultationForm();
+              }}
+              className="hover:text-white transition-colors"
+            >
+              Iniciar Consulta
+            </a>
+            <Link
+              href="/arcanos-mayores"
+              className="hover:text-white transition-colors"
+            >
+              Arcanos Mayores
+            </Link>
+            <Link
+              href="/arcanos-menores/bastos"
+              className="hover:text-white transition-colors"
+            >
+              Bastos
+            </Link>
+            <Link
+              href="/arcanos-menores/copas"
+              className="hover:text-white transition-colors"
+            >
+              Copas
+            </Link>
+            <Link
+              href="/arcanos-menores/espadas"
+              className="hover:text-white transition-colors"
+            >
+              Espadas
+            </Link>
+            <Link
+              href="/arcanos-menores/pentaculos"
+              className="hover:text-white transition-colors"
+            >
+              Pentáculos
+            </Link>
+          </div>
+        </div>
+      </footer>
     </div>
+  );
+}
+
+interface PositionMiniCardProps {
+  pos: number;
+  label: string;
+  active: boolean;
+  onClick: () => void;
+  compact?: boolean;
+  crossed?: boolean;
+}
+
+function PositionMiniCard({
+  pos,
+  label,
+  active,
+  onClick,
+  compact = false,
+  crossed = false,
+}: PositionMiniCardProps) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`relative rounded-xl border transition-all cursor-pointer flex flex-col items-center justify-center text-center overflow-hidden ${
+        compact ? "w-full py-2.5 px-2" : "w-20 sm:w-24 aspect-[2/3] p-2"
+      } ${crossed ? "ring-1 ring-fuchsia-400/40" : ""} ${
+        active
+          ? "bg-gradient-to-br from-purple-600/80 to-fuchsia-600/80 border-white text-white shadow-lg shadow-purple-500/30 scale-105 z-10"
+          : "bg-purple-950/40 border-purple-400/35 text-purple-200 hover:border-purple-300 hover:bg-purple-900/40"
+      }`}
+    >
+      {!compact && (
+        <Image
+          src={REVERSO_PATH}
+          alt=""
+          fill
+          className="object-cover opacity-20 pointer-events-none"
+          sizes="96px"
+        />
+      )}
+      <span className="relative z-10 text-xs sm:text-sm font-extrabold">
+        #{pos}
+      </span>
+      <span className="relative z-10 text-[10px] sm:text-xs font-medium leading-tight mt-0.5">
+        {label}
+      </span>
+    </button>
   );
 }

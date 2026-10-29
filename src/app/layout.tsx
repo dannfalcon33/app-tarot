@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lectura de Tarot - Cartas Aleatorias",
+  title: "Universe Tarot — Oráculo Cósmico y Tirada de Cruz Celta",
   description:
-    "App de lectura de tarot con cartas aleatorias. Baraja y selecciona 12 cartas para tu lectura.",
+    "Universe Tarot: conecta tu intención con el cosmos. Realiza tu consulta general con la tirada tradicional de Cruz Celta de 10 cartas y explora los 78 Arcanos.",
   icons: {
     icon: "/images/favicon.webp",
   },
@@ -33,19 +33,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased text-slate-100 selection:bg-purple-500/40 selection:text-purple-100`}
         style={{
-          backgroundColor: "#000",
+          backgroundColor: "#04020a",
           minHeight: "100vh",
         }}
       >
         {/* Fondo animado de estrellas con Three.js */}
         <Starfield />
-        <div className="relative min-h-screen">
-          {/* Overlay oscuro para mejor contraste */}
-          <div className="fixed inset-0 bg-black bg-opacity-40 pointer-events-none z-0"></div>
+        <div className="relative min-h-screen overflow-x-hidden">
+          {/* Nebulosa cósmica ambiental */}
+          <div className="fixed inset-0 bg-gradient-to-b from-purple-950/20 via-black/45 to-indigo-950/30 pointer-events-none z-0"></div>
           <div className="relative z-10">{children}</div>
         </div>
       </body>

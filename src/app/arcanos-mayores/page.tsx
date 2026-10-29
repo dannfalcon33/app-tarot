@@ -28,12 +28,20 @@ export default function MajorArcanaCarouselPage() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center py-8 px-4">
       <div className="w-full max-w-6xl mx-auto">
-        <button
-          onClick={() => router.push("/")}
-          className="mb-6 text-sm text-purple-200 hover:text-white underline"
-        >
-          ← Volver a la lectura de tarot
-        </button>
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+          <button
+            onClick={() => router.push("/")}
+            className="text-sm text-purple-200 hover:text-white bg-purple-950/50 border border-purple-500/35 px-4 py-2 rounded-full transition-colors cursor-pointer"
+          >
+            ← Volver a Universe Tarot
+          </button>
+          <button
+            onClick={() => router.push("/lectura")}
+            className="text-sm font-semibold text-white bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 px-4 py-2 rounded-full shadow-lg transition-all cursor-pointer"
+          >
+            Ir a Tirada Cruz Celta ✦
+          </button>
+        </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-center text-white mb-3 drop-shadow-lg">
           Arcanos Mayores
@@ -49,13 +57,14 @@ export default function MajorArcanaCarouselPage() {
             <div className="flex items-center justify-center gap-4 mb-4">
               <button
                 onClick={goPrev}
-                className="rounded-full bg-black/40 border border-purple-500/60 text-white w-10 h-10 flex items-center justify-center hover:bg-purple-700/70 transition-colors"
+                className="rounded-full bg-black/40 border border-purple-500/60 text-white w-10 h-10 flex items-center justify-center hover:bg-purple-700/70 transition-colors cursor-pointer"
                 aria-label="Carta anterior"
               >
                 ‹
               </button>
 
-              <div className="relative rounded-xl overflow-hidden shadow-2xl border border-purple-500/50 bg-black/40"
+              <div
+                className="relative rounded-xl overflow-hidden shadow-2xl border border-purple-500/50 bg-black/40"
                 style={{
                   width: "min(70vw, 320px)",
                   aspectRatio: "2/3",
@@ -72,7 +81,7 @@ export default function MajorArcanaCarouselPage() {
 
               <button
                 onClick={goNext}
-                className="rounded-full bg-black/40 border border-purple-500/60 text-white w-10 h-10 flex items-center justify-center hover:bg-purple-700/70 transition-colors"
+                className="rounded-full bg-black/40 border border-purple-500/60 text-white w-10 h-10 flex items-center justify-center hover:bg-purple-700/70 transition-colors cursor-pointer"
                 aria-label="Carta siguiente"
               >
                 ›
@@ -106,7 +115,7 @@ export default function MajorArcanaCarouselPage() {
                 <button
                   key={card.id}
                   onClick={() => goToIndex(index)}
-                  className={`relative rounded-lg overflow-hidden border transition-all duration-150 ${
+                  className={`relative rounded-lg overflow-hidden border transition-all duration-150 cursor-pointer ${
                     index === currentIndex
                       ? "border-purple-400 ring-2 ring-purple-400/70 scale-105"
                       : "border-purple-500/40 hover:border-purple-300/80"
@@ -133,4 +142,3 @@ export default function MajorArcanaCarouselPage() {
     </div>
   );
 }
-
