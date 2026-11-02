@@ -14,19 +14,19 @@ const HERO_PREVIEW_CARDS = [
   {
     name: "El Mago",
     role: "1 · El Presente",
-    path: "/tarot/Arcanos Mayores/1 El Mago.webp",
+    path: "/tarot/Arcanos Mayores/1-mago.webp",
     rotate: "-rotate-12 -translate-x-10 translate-y-4",
   },
   {
     name: "La Estrella",
     role: "5 · La Corona",
-    path: "/tarot/Arcanos Mayores/17 La Estrella.webp",
+    path: "/tarot/Arcanos Mayores/17-estrella.webp",
     rotate: "rotate-0 -translate-y-2 z-20 scale-105",
   },
   {
-    name: "El Mundo",
+    name: "El Sol",
     role: "10 · Resultado Final",
-    path: "/tarot/Arcanos Mayores/21 El Mundo.webp",
+    path: "/tarot/Arcanos Mayores/19-sol.webp",
     rotate: "rotate-12 translate-x-10 translate-y-4",
   },
 ];
@@ -34,12 +34,12 @@ const HERO_PREVIEW_CARDS = [
 const ARCANA_COLLECTIONS = [
   {
     title: "Arcanos Mayores",
-    subtitle: "22 Cartas · El Viaje del Alma",
+    subtitle: "20 Cartas · El Viaje del Alma",
     description:
       "Los grandes arquetipos cósmicos que marcan lecciones profundas, cambios de ciclo y despertares espirituales.",
     href: "/arcanos-mayores",
-    preview: "/tarot/Arcanos Mayores/17 La Estrella.webp",
-    badge: "22 Arcanos",
+    preview: "/tarot/Arcanos Mayores/17-estrella.webp",
+    badge: "20 Arcanos",
     accent: "from-purple-500/30 via-fuchsia-500/20 to-indigo-600/30",
     border: "border-purple-400/40 hover:border-purple-300",
   },
@@ -49,7 +49,7 @@ const ARCANA_COLLECTIONS = [
     description:
       "Representan la chispa creativa, la voluntad, la pasión, el impulso emprendedor y el movimiento.",
     href: "/arcanos-menores/bastos",
-    preview: "/tarot/Bastos/As de Bastos.webp",
+    preview: "/tarot/Bastos/4-cuatro-bastos.webp",
     badge: "14 Cartas",
     accent: "from-amber-500/25 via-orange-500/15 to-purple-900/30",
     border: "border-amber-400/35 hover:border-amber-300",
@@ -60,7 +60,7 @@ const ARCANA_COLLECTIONS = [
     description:
       "Hablan del mundo afectivo, los vínculos del corazón, la sensibilidad psíquica y los sueños.",
     href: "/arcanos-menores/copas",
-    preview: "/tarot/Copas/As de Copas.webp",
+    preview: "/tarot/Copas/1-as-copas.webp",
     badge: "14 Cartas",
     accent: "from-cyan-500/25 via-blue-500/15 to-purple-900/30",
     border: "border-cyan-400/35 hover:border-cyan-300",
@@ -82,7 +82,7 @@ const ARCANA_COLLECTIONS = [
     description:
       "Conectan con la manifestación tangible, el trabajo, los recursos, el cuerpo y la prosperidad.",
     href: "/arcanos-menores/pentaculos",
-    preview: "/tarot/Pentaculos/As de Pentaculos.webp",
+    preview: "/tarot/Pentaculos/1-as-pentaculos.webp",
     badge: "14 Cartas",
     accent: "from-emerald-500/25 via-teal-500/15 to-purple-900/30",
     border: "border-emerald-400/35 hover:border-emerald-300",

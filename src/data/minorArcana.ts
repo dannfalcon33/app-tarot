@@ -13,7 +13,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 1,
     name: "As de Bastos",
-    path: "/tarot/Bastos/As de Bastos.webp",
+    path: "/tarot/Bastos/1-as-bastos.png",
     suit: "Bastos",
     description:
       "Una chispa inicial de energía, creatividad e impulso para empezar algo nuevo.",
@@ -23,7 +23,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 2,
     name: "Dos de Bastos",
-    path: "/tarot/Bastos/Dos de Bastos.webp",
+    path: "/tarot/Bastos/2-dos-bastos.png",
     suit: "Bastos",
     description:
       "La planificación y la visión de futuro antes de dar un gran paso.",
@@ -33,7 +33,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 3,
     name: "Tres de Bastos",
-    path: "/tarot/Bastos/Tres de Bastos.webp",
+    path: "/tarot/Bastos/3-tres-bastos.png",
     suit: "Bastos",
     description:
       "Esperar resultados tras haber dado un paso valiente hacia lo nuevo.",
@@ -43,7 +43,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 4,
     name: "Cuatro de Bastos",
-    path: "/tarot/Bastos/Cuatro de Bastos.webp",
+    path: "/tarot/Bastos/4-cuatro-bastos.webp",
     suit: "Bastos",
     description:
       "Celebración, estabilidad y momentos de alegría compartida con otros.",
@@ -53,7 +53,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 5,
     name: "Cinco de Bastos",
-    path: "/tarot/Bastos/Cinco de Bastos.webp",
+    path: "/tarot/Bastos/5-cinco-bastos.webp",
     suit: "Bastos",
     description:
       "Tensiones, competencia y choques de opiniones que pueden ser caóticos.",
@@ -63,7 +63,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 6,
     name: "Seis de Bastos",
-    path: "/tarot/Bastos/Seis de Bastos.webp",
+    path: "/tarot/Bastos/6-seis-bastos.webp",
     suit: "Bastos",
     description:
       "Reconocimiento público y la sensación de victoria tras un esfuerzo.",
@@ -73,7 +73,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 7,
     name: "Siete de Bastos",
-    path: "/tarot/Bastos/Siete de Bastos.webp",
+    path: "/tarot/Bastos/7-siete-bastos.webp",
     suit: "Bastos",
     description: "Defender tu posición frente a desafíos y presiones externas.",
     meaning:
@@ -82,7 +82,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 8,
     name: "Ocho de Bastos",
-    path: "/tarot/Bastos/Ocho de Bastos.webp",
+    path: "/tarot/Bastos/8-ocho-bastos.webp",
     suit: "Bastos",
     description:
       "Movimiento rápido, noticias que llegan y avances que se aceleran.",
@@ -92,7 +92,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 9,
     name: "Nueve de Bastos",
-    path: "/tarot/Bastos/Nueve de Bastos.webp",
+    path: "/tarot/Bastos/9-nueve-bastos.webp",
     suit: "Bastos",
     description:
       "Persistencia y resistencia a pesar del cansancio y las heridas del pasado.",
@@ -102,7 +102,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 10,
     name: "Diez de Bastos",
-    path: "/tarot/Bastos/Diez de Bastos.webp",
+    path: "/tarot/Bastos/10-diez-bastos.webp",
     suit: "Bastos",
     description:
       "La carga pesada de responsabilidades que puede volverse abrumadora.",
@@ -112,7 +112,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 11,
     name: "Sota de Bastos",
-    path: "/tarot/Bastos/Sota de Bastos.webp",
+    path: "/tarot/Bastos/11-sota-bastos.webp",
     suit: "Bastos",
     description:
       "Energía juvenil y curiosa que quiere explorar nuevas ideas y caminos.",
@@ -122,7 +122,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 12,
     name: "Caballero de Bastos",
-    path: "/tarot/Bastos/Caballero de Bastos.webp",
+    path: "/tarot/Bastos/12-caballero-bastos.webp",
     suit: "Bastos",
     description:
       "Impulso apasionado, a veces impulsivo, que busca aventura y acción.",
@@ -132,7 +132,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 13,
     name: "Reina de Bastos",
-    path: "/tarot/Bastos/Reina de Bastos.webp",
+    path: "/tarot/Bastos/13-reina-bastos.webp",
     suit: "Bastos",
     description:
       "Confianza, magnetismo personal y la capacidad de inspirar a otros.",
@@ -142,7 +142,7 @@ export const MINOR_ARCANA_BASTOS: MinorArcanaCard[] = [
   {
     id: 14,
     name: "Rey de Bastos",
-    path: "/tarot/Bastos/Rey de Bastos.webp",
+    path: "/tarot/Bastos/14-rey-bastos.webp",
     suit: "Bastos",
     description:
       "Visión, liderazgo y dominio sobre la energía creativa y emprendedora.",
@@ -155,7 +155,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 1,
     name: "As de Copas",
-    path: "/tarot/Copas/As de Copas.webp",
+    path: "/tarot/Copas/1-as-copas.webp",
     suit: "Copas",
     description:
       "Un desborde de emociones, apertura del corazón y nuevas conexiones afectivas.",
@@ -165,7 +165,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 2,
     name: "Dos de Copas",
-    path: "/tarot/Copas/Dos de Copas.webp",
+    path: "/tarot/Copas/2-dos-copas.webp",
     suit: "Copas",
     description:
       "Encuentro armonioso entre dos energías que se reconocen y se apoyan.",
@@ -175,7 +175,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 3,
     name: "Tres de Copas",
-    path: "/tarot/Copas/Tres de Copas.webp",
+    path: "/tarot/Copas/3-tres-copas.webp",
     suit: "Copas",
     description:
       "Celebración, amistades y momentos de alegría compartida en comunidad.",
@@ -185,7 +185,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 4,
     name: "Cuatro de Copas",
-    path: "/tarot/Copas/Cuatro de Copas.webp",
+    path: "/tarot/Copas/4-cuatro-copas.webp",
     suit: "Copas",
     description:
       "Un estado de apatía o desconexión emocional frente a lo que la vida ofrece.",
@@ -195,7 +195,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 5,
     name: "Cinco de Copas",
-    path: "/tarot/Copas/Cinco de Copas.webp",
+    path: "/tarot/Copas/5-cinco-copas.webp",
     suit: "Copas",
     description:
       "Dolor emocional y enfoque en lo perdido más que en lo que permanece.",
@@ -205,7 +205,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 6,
     name: "Seis de Copas",
-    path: "/tarot/Copas/Seis de Copas.webp",
+    path: "/tarot/Copas/6-seis-copas.webp",
     suit: "Copas",
     description:
       "Recuerdos, nostalgia y el retorno a experiencias del pasado con ternura.",
@@ -215,7 +215,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 7,
     name: "Siete de Copas",
-    path: "/tarot/Copas/Siete de Copas.webp",
+    path: "/tarot/Copas/7-siete-copas.webp",
     suit: "Copas",
     description: "Muchas opciones y fantasías que pueden confundir o distraer.",
     meaning:
@@ -224,7 +224,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 8,
     name: "Ocho de Copas",
-    path: "/tarot/Copas/Ocho de Copas.webp",
+    path: "/tarot/Copas/8-ocho-copas.webp",
     suit: "Copas",
     description:
       "Partir de algo conocido en búsqueda de una verdad o plenitud más profunda.",
@@ -234,7 +234,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 9,
     name: "Nueve de Copas",
-    path: "/tarot/Copas/Nueve de Copas.webp",
+    path: "/tarot/Copas/9-nueve-copas.webp",
     suit: "Copas",
     description:
       "Satisfacción emocional y sensación de haber recibido un deseo cumplido.",
@@ -244,7 +244,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 10,
     name: "Diez de Copas",
-    path: "/tarot/Copas/Diez de Copas.webp",
+    path: "/tarot/Copas/10-diez-copas.webp",
     suit: "Copas",
     description:
       "Armonía familiar y plenitud afectiva que se comparte con otros.",
@@ -254,7 +254,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 11,
     name: "Sota de Copas",
-    path: "/tarot/Copas/Sota de Copas.webp",
+    path: "/tarot/Copas/11-sota-copas.webp",
     suit: "Copas",
     description:
       "Sensibilidad, intuición y apertura a mensajes emocionales o creativos.",
@@ -264,7 +264,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 12,
     name: "Caballero de Copas",
-    path: "/tarot/Copas/Caballero de Copas.webp",
+    path: "/tarot/Copas/12-caballero-copas.webp",
     suit: "Copas",
     description:
       "Romanticismo en movimiento, búsqueda de experiencias intensas del corazón.",
@@ -274,7 +274,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 13,
     name: "Reina de Copas",
-    path: "/tarot/Copas/Reina de Copas.webp",
+    path: "/tarot/Copas/13-reina-copas.webp",
     suit: "Copas",
     description:
       "Profunda empatía, intuición y capacidad de contener emocionalmente a otros.",
@@ -284,7 +284,7 @@ export const MINOR_ARCANA_COPAS: MinorArcanaCard[] = [
   {
     id: 14,
     name: "Rey de Copas",
-    path: "/tarot/Copas/Rey de Copas.webp",
+    path: "/tarot/Copas/14-rey-copas.webp",
     suit: "Copas",
     description:
       "Madurez emocional y capacidad de manejar sentimientos intensos con equilibrio.",
@@ -423,7 +423,7 @@ export const MINOR_ARCANA_ESPADAS: MinorArcanaCard[] = [
   {
     id: 14,
     name: "Rey de Espadas",
-    path: "/tarot/Espadas/14-rey-espadas.webp",
+    path: "/tarot/Espadas/13-rey-espadas.webp",
     suit: "Espadas",
     description:
       "Dominio mental, justicia y capacidad de tomar decisiones objetivas.",
@@ -436,7 +436,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 1,
     name: "As de Pentáculos",
-    path: "/tarot/Pentaculos/As de Pentaculos.webp",
+    path: "/tarot/Pentaculos/1-as-pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Semilla de abundancia material, oportunidad concreta que empieza a manifestarse.",
@@ -446,7 +446,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 2,
     name: "Dos de Pentáculos",
-    path: "/tarot/Pentaculos/Dos de Pentaculos.webp",
+    path: "/tarot/Pentaculos/2-dos-pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Equilibrio dinámico entre varias responsabilidades y recursos.",
@@ -456,7 +456,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 3,
     name: "Tres de Pentáculos",
-    path: "/tarot/Pentaculos/Tres de Pentaculos.webp",
+    path: "/tarot/Pentaculos/3-tres-pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Trabajo en equipo, maestría en desarrollo y reconocimiento profesional.",
@@ -466,7 +466,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 4,
     name: "Cuatro de Pentáculos",
-    path: "/tarot/Pentaculos/Cuatro de Pentaculos.webp",
+    path: "/tarot/Pentaculos/4-cuatro-pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Apego y necesidad de controlar o retener recursos por miedo a perderlos.",
@@ -476,7 +476,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 5,
     name: "Cinco de Pentáculos",
-    path: "/tarot/Pentaculos/Cinco de Pentaculos.webp",
+    path: "/tarot/Pentaculos/5-cinco-pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Sensación de carencia, exclusión o dificultad material que pesa.",
@@ -486,7 +486,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 6,
     name: "Seis de Pentáculos",
-    path: "/tarot/Pentaculos/Seis de Pentaculos.webp",
+    path: "/tarot/Pentaculos/6-seis-pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Dar y recibir en equilibrio, generosidad y reparto justo de recursos.",
@@ -496,7 +496,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 7,
     name: "Siete de Pentáculos",
-    path: "/tarot/Pentaculos/Siete de Pentaculos.webp",
+    path: "/tarot/Pentaculos/7-siete-pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Pausa para evaluar el crecimiento de lo que has sembrado con paciencia.",
@@ -506,7 +506,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 8,
     name: "Ocho de Pentáculos",
-    path: "/tarot/Pentaculos/Ocho de Pentaculos.webp",
+    path: "/tarot/Pentaculos/8-ocho-pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Trabajo constante, aprendizaje y perfeccionamiento de una habilidad.",
@@ -516,7 +516,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 9,
     name: "Nueve de Pentáculos",
-    path: "/tarot/Pentaculos/Nueve de Pentaculos.webp",
+    path: "/tarot/Pentaculos/9-nueve-pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Autonomía, disfrute de lo logrado y sensación de seguridad personal.",
@@ -526,7 +526,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 10,
     name: "Diez de Pentáculos",
-    path: "/tarot/Pentaculos/Diez de Pentaculos.webp",
+    path: "/tarot/Pentaculos/10-diez-pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Abundancia compartida, legado familiar y estabilidad a largo plazo.",
@@ -536,7 +536,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 11,
     name: "Sota de Pentáculos",
-    path: "/tarot/Pentaculos/Sota de Pentaculos.webp",
+    path: "/tarot/Pentaculos/11-page-pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Aprendizaje práctico, enfoque en estudios, trabajo o proyectos concretos.",
@@ -546,7 +546,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 12,
     name: "Caballero de Pentáculos",
-    path: "/tarot/Pentaculos/Caballero de Pentaculos.webp",
+    path: "/tarot/Pentaculos/12-caballero-pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Constancia, responsabilidad y avanzar con pasos seguros aunque lentos.",
@@ -556,7 +556,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 13,
     name: "Reina de Pentáculos",
-    path: "/tarot/Pentaculos/Reina de Pentaculos.webp",
+    path: "/tarot/Pentaculos/13-reina-pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Energía nutritiva y práctica que cuida tanto el bienestar como lo material.",
@@ -566,7 +566,7 @@ export const MINOR_ARCANA_PENTACULOS: MinorArcanaCard[] = [
   {
     id: 14,
     name: "Rey de Pentáculos",
-    path: "/tarot/Pentaculos/Rey de Pentáculos.webp",
+    path: "/tarot/Pentaculos/14-rey-pentaculos.webp",
     suit: "Pentáculos",
     description:
       "Dominio del mundo material, éxito y solidez construidos con paciencia.",
