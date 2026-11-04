@@ -186,22 +186,9 @@ export const MAJOR_ARCANA: MajorArcanaCard[] = [
     meaning:
       "Éxito, felicidad, energía positiva, momentos de claridad en los que todo se ve con optimismo.",
   },
-  /* Pendientes de agregar imágenes WebP:
-  {
-    id: 20,
-    name: "El Juicio",
-    path: "/tarot/Arcanos Mayores/20-juicio.webp",
-    description: "El llamado a despertar, reconciliar el pasado y renacer.",
-    meaning:
-      "Tomar decisiones importantes, perdonar, liberarte del peso del pasado y responder a una nueva vocación interna.",
-  },
-  {
-    id: 21,
-    name: "El Mundo",
-    path: "/tarot/Arcanos Mayores/21-mundo.webp",
-    description: "La culminación del viaje, la sensación de totalidad y logro.",
-    meaning:
-      "Cierre exitoso de una etapa, integración, expansión y apertura a un nuevo ciclo desde un nivel más elevado.",
-  },
-  */
+  /*
+   * Pendientes de agregar imágenes .webp en public/tarot/Arcanos Mayores:
+   * 20 - El Juicio (/tarot/Arcanos Mayores/20-juicio.webp)
+   * 21 - El Mundo (/tarot/Arcanos Mayores/21-mundo.webp)
+   */
 ];

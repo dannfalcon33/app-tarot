@@ -9,6 +9,7 @@ import {
   CONSULTATION_TOPICS,
   REVERSO_PATH,
 } from "@/data/tarotSpread";
+import Footer from "@/components/Footer";
 
 const HERO_PREVIEW_CARDS = [
   {
@@ -138,8 +139,15 @@ export default function UniverseTarotLandingPage() {
       <header className="sticky top-0 z-40 backdrop-blur-xl bg-black/50 border-b border-purple-500/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 via-fuchsia-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:scale-105 transition-transform">
-              <span className="text-xl text-white">✦</span>
+            <div className="relative w-9 h-12 rounded-lg overflow-hidden border border-purple-300/60 shadow-lg shadow-purple-500/30 group-hover:scale-105 transition-transform shrink-0">
+              <Image
+                src={REVERSO_PATH}
+                alt="Universe Tarot Logo"
+                fill
+                className="object-cover"
+                sizes="36px"
+                priority
+              />
             </div>
             <div>
               <span className="text-xl font-bold tracking-wide bg-gradient-to-r from-white via-purple-200 to-fuchsia-300 bg-clip-text text-transparent">
@@ -663,57 +671,7 @@ export default function UniverseTarotLandingPage() {
       </main>
 
       {/* FOOTER */}
-      <footer className="border-t border-purple-500/20 bg-black/60 backdrop-blur-md py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-purple-300/75">
-          <div className="flex items-center gap-2">
-            <span className="text-fuchsia-400">✦</span>
-            <span className="font-semibold text-white">Universe Tarot</span>
-            <span>— Oráculo Cósmico de 10 Cartas (Cruz Celta)</span>
-          </div>
-          <div className="flex flex-wrap items-center gap-5">
-            <a
-              href="#consulta"
-              onClick={(e) => {
-                e.preventDefault();
-                focusConsultationForm();
-              }}
-              className="hover:text-white transition-colors"
-            >
-              Iniciar Consulta
-            </a>
-            <Link
-              href="/arcanos-mayores"
-              className="hover:text-white transition-colors"
-            >
-              Arcanos Mayores
-            </Link>
-            <Link
-              href="/arcanos-menores/bastos"
-              className="hover:text-white transition-colors"
-            >
-              Bastos
-            </Link>
-            <Link
-              href="/arcanos-menores/copas"
-              className="hover:text-white transition-colors"
-            >
-              Copas
-            </Link>
-            <Link
-              href="/arcanos-menores/espadas"
-              className="hover:text-white transition-colors"
-            >
-              Espadas
-            </Link>
-            <Link
-              href="/arcanos-menores/pentaculos"
-              className="hover:text-white transition-colors"
-            >
-              Pentáculos
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

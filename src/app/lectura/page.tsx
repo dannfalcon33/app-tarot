@@ -14,6 +14,7 @@ import {
 } from "@/data/tarotSpread";
 import type { InterpretResponseData } from "@/app/api/interpretar/route";
 import HoloTarotCard from "@/components/HoloTarotCard";
+import Footer from "@/components/Footer";
 
 interface DealtCardSlot {
   position: number;
@@ -215,8 +216,16 @@ function TarotReadingContent() {
               <span>←</span>
               <span>Nueva Consulta</span>
             </Link>
-            <div className="hidden sm:flex items-center gap-2">
-              <span className="text-fuchsia-400">✦</span>
+            <div className="hidden sm:flex items-center gap-2.5">
+              <div className="relative w-7 h-10 rounded-md overflow-hidden border border-purple-300/60 shadow-md shrink-0">
+                <Image
+                  src={REVERSO_PATH}
+                  alt="Universe Tarot Logo"
+                  fill
+                  className="object-cover"
+                  sizes="28px"
+                />
+              </div>
               <span className="font-bold text-white tracking-wide">
                 Universe Tarot
               </span>
@@ -951,26 +960,8 @@ function TarotReadingContent() {
         )}
       </main>
 
-      {/* Pie de página compacto */}
-      <footer className="border-t border-purple-500/20 bg-black/60 py-5 px-4 text-center text-xs text-purple-300/70">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span>
-            ✦ <strong>Universe Tarot</strong> — Motor de 78 Cartas, Cruz Celta e
-            Interpretación con IA
-          </span>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/" className="hover:text-white underline">
-              Volver a la Landing Page
-            </Link>
-            <Link
-              href="/arcanos-mayores"
-              className="hover:text-white underline"
-            >
-              Arcanos Mayores
-            </Link>
-          </div>
-        </div>
-      </footer>
+      {/* Pie de página ampliado */}
+      <Footer />
     </div>
   );
 }

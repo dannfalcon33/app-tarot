@@ -16,9 +16,16 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Universe Tarot — Oráculo Cósmico y Tirada de Cruz Celta",
   description:
-    "Universe Tarot: conecta tu intención con el cosmos. Realiza tu consulta general con la tirada tradicional de Cruz Celta de 10 cartas y explora los 78 Arcanos.",
+    "Universe Tarot: conecta tu intención con el cosmos. Realiza tu consulta general con la tirada tradicional de Cruz Celta de 10 cartas y explora los Arcanos.",
   icons: {
-    icon: "/images/favicon.webp",
+    icon: [
+      {
+        url: "/tarot/reverse-universe.webp",
+        type: "image/webp",
+      },
+    ],
+    shortcut: "/tarot/reverse-universe.webp",
+    apple: "/tarot/reverse-universe.webp",
   },
 };
 
