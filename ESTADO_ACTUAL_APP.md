@@ -1,4 +1,4 @@
-# Universe Tarot — Documento de Estado Actual y Especificación Técnica (Input para Astra 6)
+t# Universe Tarot — Documento de Estado Actual y Especificación Técnica (Input para Astra 6)
 
 > **Propósito de este documento:** Definir de forma exhaustiva la arquitectura actual, módulos implementados, estado de activos gráficos, modelo de negocio (pagos con PayPal) y requerimientos pendientes de **Universe Tarot**, para que **Astra 6** pueda analizar el proyecto y estructurar un **Plan de Desarrollo de Software (Roadmap & Sprint Backlog)** completo hacia producción.
 

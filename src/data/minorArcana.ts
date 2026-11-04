@@ -1,5 +1,3 @@
-"use client";
-
 export interface MinorArcanaCard {
   id: number;
   name: string;
