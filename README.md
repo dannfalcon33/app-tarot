@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Universe Tarot — Oráculo Cósmico y Tirada de Cruz Celta
 
-## Getting Started
+Aplicación web interactiva de Tarot construida con **Next.js 16 (App Router)**, **React 19**, **TypeScript**, **Tailwind CSS v4**, **Three.js** y efectos holográficos 3D.
 
-First, run the development server:
+## Características Principales
+
+- **Baraja Oficial Completa de 78 Cartas (`public/tarot/`):**
+  - **22 Arcanos Mayores** (`0 El Loco` a `21 El Universo`).
+  - **56 Arcanos Menores** distribuidos en 4 palos elementales de 14 cartas cada uno: **Bastos** (Fuego), **Copas** (Agua), **Espadas** (Aire) y **Pentáculos** (Tierra).
+  - Reverso oficial personalizado (`/tarot/reverse-universe.webp`).
+- **Sistema de Cartas Holográficas 3D (`TarotCard`, `TarotFlip`, `TarotCardBack`):**
+  - Inclinación 3D reactiva al puntero y pantallas táctiles, brillo holográfico *Reverse Leviathan*, giro 3D con destello cósmico al revelar y soporte nativo de orientación **Al Derecho (`upright`)** e **Invertida (`reversed`)**.
+- **Motor del Ritual y Mesa Virtual de Cruz Celta (`/lectura` y `/lectura/[sessionId]`):**
+  - Máquina de estados completa (`preparing` → `shuffling` → `dealing` → `revealing` → `ready_to_interpret` → `interpreting` → `completed` / `error`).
+  - Algoritmo de barajado **Fisher-Yates** sin repetición con congelación de las 10 cartas sorteadas y persistencia temporal en `sessionStorage` resistente a recargas de página (`F5`).
+  - Inspector lateral sincronizado y bloqueo estricto de la interpretación hasta revelar las **10/10 cartas**.
+- **Oráculo de Inteligencia Artificial en 8 Capítulos (`/api/interpretar`):**
+  - Endpoint servidor seguro sin exponer API keys en el navegador.
+  - Cascada de proveedores gratuitos: **Google Gemini (`gemini-2.0-flash`)** → **Groq (`llama-3.1-8b-instant`)** → **Pollinations Free (`openai-fast`)** → **Motor narrativo determinista en 8 capítulos (`ES` / `EN` / `PT`)**.
+  - Lectura estructurada en 8 capítulos (*I. Diagnóstico General*, *II. Energía Central*, *III. Influencias y Bloqueos*, *IV. Pasado y Evolución*, *V. Situación Actual*, *VI. Futuro y Tendencias*, *VII. Relaciones entre las Cartas*, *VIII. Guía Práctica y Conclusión*) con opción de reintentar usando exactamente la misma tirada.
+- **Biblioteca Interactiva de Arcanos (`ArcanaCatalog`):**
+  - Exploración de las 78 cartas por familia, buscador instantáneo, altar holográfico 3D, selector de idioma (`ES` / `EN` / `PT`) y modal de detalle con navegación por teclado (`←`, `→`, `Esc`).
+
+## Desarrollo Local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre `http://localhost:3000` en tu navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Verificación de Calidad y Build de Producción
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+npx tsc --noEmit
+npm run build
+```

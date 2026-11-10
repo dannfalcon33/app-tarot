@@ -182,47 +182,83 @@ export const CELTIC_CROSS_POSITIONS: CelticCrossPosition[] = [
 export interface ConsultationTopic {
   id: string;
   label: string;
+  shortDesc: string;
   icon: string;
   promptPlaceholder: string;
   defaultQuestion: string;
+  sampleQuestions: string[];
 }
 
 export const CONSULTATION_TOPICS: ConsultationTopic[] = [
   {
     id: "general",
     label: "Consulta General",
+    shortDesc: "Visión integral de tu momento actual",
     icon: "✦",
     promptPlaceholder:
       "Ej: ¿Qué energía guía mi momento actual y hacia dónde debo enfocar mi atención?",
     defaultQuestion:
       "Consulta General: ¿Qué mensaje tiene el universo para mi camino actual?",
+    sampleQuestions: [
+      "¿Qué energía guía mi momento actual y en qué debo enfocarme?",
+      "¿Qué bloqueo invisible necesito comprender para avanzar con claridad?",
+    ],
   },
   {
     id: "amor",
     label: "Amor y Vínculos",
+    shortDesc: "Relaciones, pareja y conexiones del corazón",
     icon: "♡",
     promptPlaceholder:
       "Ej: ¿Cómo evolucionará mi vida afectiva y qué debo aprender en mis relaciones?",
     defaultQuestion:
       "Amor y Vínculos: ¿Qué energías rodean mi corazón y mis relaciones actuales?",
+    sampleQuestions: [
+      "¿Cómo evolucionará mi vida afectiva y qué aprendizaje trae este vínculo?",
+      "¿Qué debo sanar en mi interior para construir una relación en armonía?",
+    ],
   },
   {
     id: "trabajo",
     label: "Trabajo y Abundancia",
+    shortDesc: "Proyectos, vocación y prosperidad material",
     icon: "◈",
     promptPlaceholder:
       "Ej: ¿Qué oportunidades profesionales o financieras se abren en mi camino?",
     defaultQuestion:
       "Trabajo y Abundancia: ¿Cómo puedo alinear mis proyectos con la prosperidad?",
+    sampleQuestions: [
+      "¿Qué oportunidades profesionales se abren en mi camino y cómo aprovecharlas?",
+      "¿Qué decisión estratégica me ayudará a consolidar mi estabilidad económica?",
+    ],
   },
   {
     id: "espiritual",
     label: "Crecimiento Interior",
+    shortDesc: "Intuición, propósito y evolución personal",
     icon: "☽",
     promptPlaceholder:
       "Ej: ¿Qué aprendizaje espiritual o transformación interior necesito abrazar ahora?",
     defaultQuestion:
       "Crecimiento Interior: ¿Qué necesita despertar en mi consciencia en esta etapa?",
+    sampleQuestions: [
+      "¿Qué transformación interior o aprendizaje espiritual necesito abrazar ahora?",
+      "¿Qué mensaje tiene mi intuición frente al cambio de ciclo que estoy viviendo?",
+    ],
+  },
+  {
+    id: "familia",
+    label: "Familia",
+    shortDesc: "Hogar, raíces, armonía y vínculos familiares",
+    icon: "❖",
+    promptPlaceholder:
+      "Ej: ¿Cómo puedo fortalecer la armonía en mi hogar y comprender mejor a mi familia?",
+    defaultQuestion:
+      "Familia: ¿Qué energía necesita mi entorno familiar para encontrar equilibrio y unión?",
+    sampleQuestions: [
+      "¿Cómo puedo aportar mayor armonía y comprensión a mi entorno familiar?",
+      "¿Qué aprendizaje o sanación de raíces familiares se está activando en mi vida?",
+    ],
   },
 ];
 

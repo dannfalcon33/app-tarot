@@ -1,11 +1,16 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { createHoloCard, requestOrientationPermission } from "@kongyo2/cards-css";
+import {
+  createHoloCard,
+  requestOrientationPermission,
+  type HoloEffect,
+} from "@kongyo2/cards-css";
 import "@kongyo2/cards-css/styles.css";
 import { REVERSO_PATH } from "@/data/tarotSpread";
+import type { CardOrientation } from "@/types/tarot";
 
-interface HoloTarotCardProps {
+export interface HoloTarotCardProps {
   src: string;
   alt: string;
   backSrc?: string;
@@ -13,6 +18,13 @@ interface HoloTarotCardProps {
   className?: string;
   activateOnClick?: boolean;
   showcase?: boolean;
+  orientation?: CardOrientation;
+  effect?: HoloEffect;
+  interactive?: boolean;
+  maxTilt?: number;
+  parallax?: number;
+  depthStrength?: number;
+  glowColor?: string;
 }
 
 /**
@@ -28,6 +40,13 @@ export default function HoloTarotCard({
   className = "",
   activateOnClick = false,
   showcase = true,
+  orientation = "upright",
+  effect = "reverse",
+  interactive = true,
+  maxTilt = 18,
+  parallax = 1.3,
+  depthStrength = 14,
+  glowColor = "hsl(275, 95%, 76%)",
 }: HoloTarotCardProps) {
   const stageRef = useRef<HTMLDivElement | null>(null);
 
@@ -37,23 +56,28 @@ export default function HoloTarotCard({
 
     container.innerHTML = "";
 
-    // Configuración exacta del preset "Reverse Leviathan" de kongyo2/cards-css con su reverso
     const card = createHoloCard({
       image: src,
-      imageAlt: alt,
+      imageAlt:
+        orientation === "reversed" ? `${alt} (Invertida)` : alt,
       back: backSrc,
       backAlt: "Reverso Universe Tarot",
-      effect: "reverse",
+      effect,
       aspectRatio: 2 / 3,
-      interactive: true,
+      interactive,
       activateOnClick,
       showcase: showcase
-        ? { delay: 350, duration: 2800, intensity: 18 }
+        ? {
+            delay: 350,
+            duration: 2800,
+            intensity: 18,
+            respectReducedMotion: true,
+          }
         : false,
       physics: {
-        parallax: 1.3,
+        parallax,
         glareRange: 1.1,
-        maxTilt: 18,
+        maxTilt,
       },
       glare: {
         shape: "ellipse",
@@ -65,11 +89,11 @@ export default function HoloTarotCard({
         ],
       },
       depth: {
-        strength: 14,
+        strength: depthStrength,
         perspective: 650,
         shadow: 0.45,
       },
-      glow: "hsl(275, 95%, 76%)",
+      glow: glowColor,
     });
 
     card.element.style.width = "100%";
@@ -88,12 +112,27 @@ export default function HoloTarotCard({
       card.destroy();
       container.innerHTML = "";
     };
-  }, [src, alt, backSrc, activateOnClick, showcase]);
+  }, [
+    src,
+    alt,
+    backSrc,
+    activateOnClick,
+    showcase,
+    orientation,
+    effect,
+    interactive,
+    maxTilt,
+    parallax,
+    depthStrength,
+    glowColor,
+  ]);
 
   return (
     <div
       ref={stageRef}
-      className={`relative select-none ${className}`}
+      className={`relative select-none ${
+        orientation === "reversed" ? "holo-card--reversed" : ""
+      } ${className}`}
       style={{
         width,
         aspectRatio: "2/3",

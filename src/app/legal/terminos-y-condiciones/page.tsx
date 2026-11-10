@@ -46,39 +46,24 @@ export default function TerminosYCondicionesPage() {
       <section className="bg-purple-950/40 border border-cyan-400/35 rounded-2xl p-5 space-y-2">
         <h2 className="text-lg font-bold text-white flex items-center gap-2">
           <span className="text-cyan-300">✦</span>
-          <span>3. Medios de Pago y Facturación (Exclusivo vía PayPal)</span>
+          <span>3. Modalidad de Acceso y Persistencia Temporal</span>
         </h2>
         <p>
-          Todos los pagos correspondientes a lecturas extendidas, consultas
-          especiales, suscripciones o funciones premium dentro de{" "}
-          <strong>Universe Tarot</strong> se gestionan y procesan de forma
-          exclusiva a través de la pasarela oficial de{" "}
-          <strong className="text-cyan-200">PayPal</strong>.
+          <strong>Universe Tarot</strong> se ofrece como una experiencia web
+          interactiva y demostrativa sin pasarelas de pago, suscripciones ni
+          creación de perfiles de usuario.
         </p>
         <ul className="list-disc list-inside space-y-1.5 text-purple-100/85 pt-1">
           <li>
-            <strong>Seguridad en las transacciones:</strong> El procesamiento
-            del pago se realiza íntegramente en el entorno cifrado y seguro de
-            PayPal (ya sea mediante saldo de cuenta PayPal o tarjetas de débito
-            y crédito admitidas por dicha plataforma).
+            <strong>Sesión local:</strong> Cada consulta se mantiene en la
+            memoria de la sesión activa del navegador (<code>sessionStorage</code>)
+            para permitirte recorrer el ritual y revisar tus cartas.
           </li>
           <li>
-            <strong>Sin almacenamiento de datos bancarios:</strong>{" "}
-            <strong>Universe Tarot</strong> no solicita, procesa ni almacena en
-            sus servidores números de tarjetas de crédito, códigos CVV ni
-            credenciales financieras del usuario.
-          </li>
-          <li>
-            <strong>Confirmación inmediata:</strong> Una vez confirmado el pago
-            por parte de PayPal, el acceso a la lectura o funcionalidad digital
-            adquirida se habilita de forma inmediata en la sesión del usuario.
-          </li>
-          <li>
-            <strong>Política de servicios digitales:</strong> Dado que las
-            tiradas e interpretaciones personalizadas son productos digitales de
-            entrega y consumo inmediato, una vez generada y entregada la lectura
-            completa no procede el reembolso salvo fallo técnico verificable del
-            sistema que haya impedido la visualización del resultado.
+            <strong>Sin historial permanente:</strong> Al cerrar la pestaña o
+            iniciar una nueva consulta, los datos temporales de la tirada
+            anterior se reemplazan sin quedar almacenados en bases de datos
+            externas.
           </li>
         </ul>
       </section>

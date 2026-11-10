@@ -49,20 +49,18 @@ export default function PoliticaDePrivacidadPage() {
 
       <section className="bg-purple-950/40 border border-cyan-400/35 rounded-2xl p-5 space-y-2">
         <h2 className="text-lg font-bold text-white">
-          3. Privacidad en Pagos procesados por PayPal
+          3. Acceso Sin Registro ni Almacenamiento Permanente
         </h2>
         <p>
-          Cuando adquieres un servicio o lectura de pago dentro de{" "}
-          <strong>Universe Tarot</strong>, la transacción se realiza
-          directamente a través de <strong className="text-cyan-200">PayPal</strong>.
+          <strong>Universe Tarot</strong> funciona como una experiencia
+          interactiva de acceso directo: no requiere creación de cuentas,
+          contraseñas ni datos financieros.
         </p>
         <p>
-          <strong>Universe Tarot</strong> nunca tiene acceso a los datos
-          privados de tu tarjeta de crédito, cuenta bancaria ni contraseña de
-          PayPal. Únicamente recibimos por parte de PayPal el identificador de
-          confirmación de la transacción y el estado del pago para habilitar tu
-          servicio. El tratamiento de tus datos financieros se rige por la
-          Política de Privacidad oficial de PayPal.
+          El progreso de una tirada se conserva únicamente de forma temporal en
+          el almacenamiento de sesión de tu propio navegador (
+          <code>sessionStorage</code>) mientras mantienes abierta la pestaña de
+          consulta.
         </p>
       </section>
 

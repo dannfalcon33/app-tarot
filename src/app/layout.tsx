@@ -14,9 +14,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Universe Tarot — Oráculo Cósmico y Tirada de Cruz Celta",
+  title: "Universe Tarot — Oráculo Cósmico y Tirada de Cruz Celta con IA",
   description:
-    "Universe Tarot: conecta tu intención con el cosmos. Realiza tu consulta general con la tirada tradicional de Cruz Celta de 10 cartas y explora los Arcanos.",
+    "Universe Tarot: experiencia interactiva de Tarot con tirada de Cruz Celta de 10 cartas, baraja oficial completa de 78 arcanos holográficos 3D e interpretación profunda en 8 capítulos con Inteligencia Artificial.",
+  keywords: [
+    "Universe Tarot",
+    "Cruz Celta",
+    "Tarot IA",
+    "78 Arcanos",
+    "Arcanos Mayores",
+    "Arcanos Menores",
+    "Tarot Holográfico 3D",
+  ],
   icons: {
     icon: [
       {
@@ -27,11 +36,19 @@ export const metadata: Metadata = {
     shortcut: "/tarot/reverse-universe.webp",
     apple: "/tarot/reverse-universe.webp",
   },
+  openGraph: {
+    title: "Universe Tarot — Oráculo Cósmico y Tirada de Cruz Celta",
+    description:
+      "Conecta tu intención con las 78 cartas oficiales de Universe Tarot y descubre tu lectura en 8 capítulos con el Oráculo IA.",
+    type: "website",
+    locale: "es_ES",
+  },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  themeColor: "#04020a",
 };
 
 export default function RootLayout({
@@ -48,12 +65,20 @@ export default function RootLayout({
           minHeight: "100vh",
         }}
       >
-        {/* Fondo animado de estrellas con Three.js */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-purple-900 focus:text-white focus:px-4 focus:py-2 focus:rounded-xl focus:border focus:border-fuchsia-400"
+        >
+          Saltar al contenido principal
+        </a>
+        {/* Fondo animado de estrellas con Three.js (optimizado con pausa en segundo plano y reduced-motion) */}
         <Starfield />
         <div className="relative min-h-screen overflow-x-hidden">
           {/* Nebulosa cósmica ambiental */}
-          <div className="fixed inset-0 bg-gradient-to-b from-purple-950/20 via-black/45 to-indigo-950/30 pointer-events-none z-0"></div>
-          <div className="relative z-10">{children}</div>
+          <div className="fixed inset-0 bg-gradient-to-b from-purple-950/20 via-black/45 to-indigo-950/30 pointer-events-none z-0" />
+          <div id="main-content" className="relative z-10">
+            {children}
+          </div>
         </div>
       </body>
     </html>

@@ -57,9 +57,8 @@ export default function TerminosDeUsoPage() {
       <section className="space-y-2">
         <h2 className="text-lg font-bold text-white">3. Mayoría de Edad</h2>
         <p>
-          El uso de los servicios de consulta y en especial la contratación de
-          servicios pagados a través de <strong>PayPal</strong> dentro de{" "}
-          <strong>Universe Tarot</strong> están dirigidos a personas mayores de
+          El uso de los servicios de consulta interactiva dentro de{" "}
+          <strong>Universe Tarot</strong> está dirigido a personas mayores de
           18 años o que cuenten con la capacidad legal necesaria en su país de
           residencia.
         </p>
